@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazone Page Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Product-card.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="nav-left">
+                <div class="nav-logo">
+                    <img src="https://www.oyunfor.com/Public/upload/kategori/1953/anaResim/amazon-hediye-karti-tl-ana.jpg" alt="Amazon Logo">
+                </div>
+                <div class="nav-global">
+                    <div class="global-items">
+                        <div class="location-icon">
+                            <i id="arrow-icon1" class="fas fa-location-dot map-icon"></i>
+                        </div>
+                        <div class="text">
+                            <span id="text1">Buyer:Osman</span>
+                            <span id="text2">Gaziantep 27580</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-center">
+                <div class="nav-search">
+                    <div class="select-part">
+                        <form>
+                            <div class="item-select relative">
+                                <span class="categories">All Categories</span>
+                                <i class="fas fa-caret-down arrow-icon"></i>
+                            <div id="dropdownList" class="custom-dropdown-list"></div>
+                            </div>
+                            <select name="url" id="items" class="hidden">
+                                <option value="">All Categories</option>
+                                <option value="Amazon Warehouse">Amazon Warehouse</option>
+                                <option value="Garden">Garden</option>
+                                <option value="Baby">Baby</option>
+                                <option value="Computers">Computers</option>
+                                <option value="Home">Home</option>
+                                <option value="Home and Kitchen">Home and Kitchen</option>
+                                <option value="Pets">Pets</option>
+                                <option value="Grocery">Grocery</option>
+                                <option value="Books">Books</option>
+                                <option value="Beauty">Beauty</option>
+                                <option value="Fashion">Fashion</option>
+                                <option value="Music">Music</option>
+                                <option value="Office">Office</option>
+                                <option value="Automotive">Automotive</option>
+                                <option value="Toys">Toys</option>
+                                <option value="Video Games">Video Games</option>
+                                <option value="Prime Video">Prime Video</option>
+                                <option value="HPC">HPC</option>
+                                <option value="Sport">Sport</option>
+                                <option value="DIY">DIY</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="search-part">
+                        <input type="text" name="" id="searchbox" placeholder="Search" class="search-box">
+                    </div>
+                    <div class="search-icon">
+                        <input type="submit" class="search-button" value="">
+                    </div>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="nav-tools">
+                    <div class="nav-div">
+                        <div class="div-items">
+                            <span id="text3">Osman</span>
+                            <span id="text4">Accounts and Lists</span>
+                        </div>
+                        <i id="arrow-icon2" class="fas fa-caret-down arrow-icon"></i>
+                    </div>
+                    <div class="nav-history">
+                        <span id="text5">Refunds</span>
+                        <span id="text6">and Orders</span>
+                    </div>
+                    <div class="nav-cart">
+                        <i class="fas fa-shopping-cart shopping-cart"></i>
+                        <div class="text-cart">
+                        <span id="text7">Shopping</span>
+                        <span id="text8">Chart</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main id="products-container" class="products-container"></main>
+    </div>
+    <script src="script.js"></script>
+    <script src="product-card.js"></script>
+</body>
+</html>

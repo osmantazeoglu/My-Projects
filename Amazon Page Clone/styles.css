@@ -1,0 +1,325 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+}
+.navbar{
+    margin: 0;
+    border: none;
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    border: none;
+}
+.nav-left{
+    max-width: 320px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    display: flex;
+}
+.nav-logo{
+    box-sizing: border-box;
+    margin: 0 0 0 11px;
+    padding: 4px 0 0 0;
+    width: 158px;
+    height: 100%;
+    cursor: pointer;
+}
+.nav-logo img{
+    max-width: 100%;
+    width: 158px;
+    height: 100%;
+    display: block;
+}
+.nav-logo img:hover{
+    border: 1px solid white;
+}
+.nav-global{
+    box-sizing: border-box;
+    flex-grow: 1;
+    display: flex;
+    margin: 0 0 0 2px;
+    max-width: 149px;
+    cursor: pointer;
+}
+.global-items{
+    margin: 5px 2px 5px 0;
+    box-sizing: border-box;
+    padding: 0 9px;
+    flex-grow: 1;
+    max-width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.global-items:hover{
+    border: 1px white solid;
+}
+.map-icon{
+    color: white;
+    margin: 8px 0 0 0;
+    font-size: 1.2em;
+}
+.text{
+    margin: 0 0 0 5px;
+}
+#text1{
+    color: white;
+    font-size: 12px;
+}
+#text2{
+    color: white;
+    font-size: 14px;
+}
+.nav-center{
+    min-width: 379px;
+    height: 100%;
+    box-sizing: border-box;
+    flex-grow: 1;
+}
+.nav-search{
+    box-sizing: border-box;
+    margin: 0 10px;
+    padding: 10px 4px 10px 3px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+@media (max-width: 1244px) {
+    .nav-search{
+        margin: 0 6px;
+    }
+}
+.select-part{
+    box-sizing: border-box;
+    max-width: 200px;
+    width: auto;
+    height: 40px;
+    background-color: #e6e6e6;
+    display: flex;
+    flex-shrink: 0;
+}
+.item-select{
+    background-color: #e6e6e6;
+    width: auto;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 3px 0 0 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    color: #2c2b2b;
+    padding: 0 8px 0 5px;
+}
+.item-select:hover{
+    background-color: #d3d3d3;
+    color: black;
+}
+.custom-dropdown-list {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 184px;
+    max-height: 532px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #e6e6e6;
+    border-radius: 0;
+    z-index: 10;
+    display: none;
+}
+.custom-dropdown-item {
+    padding: 6px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.custom-dropdown-item:hover {
+    background-color: #1785da;
+    color: white;
+}
+.hidden{
+    display: none;
+}
+.categories{
+    font-size: 13px;
+    margin: 0 3px;
+}
+#arrow-icon{
+    font-size: 10px;
+    transform: 0.2s;
+    margin: 5px 5px 0 1px;
+}
+.search-part{
+    min-width: 252px;
+    flex-grow: 1;
+    box-sizing: border-box;
+    background-color: white;
+}
+.search-box{
+    margin: 0 0 0 5px;
+    padding: 7px 10px 10px 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    border: none;
+    box-sizing: border-box;
+    outline: none;
+}
+.nav-search.focused{
+    border: 3px solid orange;
+}
+.search-icon{
+    margin-left: auto;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+.search-button{
+    width: 45px;
+    height: 40px;
+    background-color: orange;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-image: url('https://icon-library.com/images/search-bar-icon-png/search-bar-icon-png-16.jpg');
+    background-size: 45px 40px;
+    border-radius: 0 3px 3px 0;
+}
+.search-button:hover{
+    background-color: orange;
+    color: black;
+}
+.nav-right{
+    width: 385px;
+    height: 100%;
+    margin-left: auto;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    padding: 0 0 2px 0;
+    border: none;
+}
+.nav-tools{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 3px 0 0 0;
+    height: 100%;
+    width: 100%;
+    border: none;
+    display: flex;
+}
+.nav-div{
+    box-sizing: border-box;
+    display: flex;
+    border: none;
+    margin: 0 0 0 2px;
+    padding: 0 9px;
+    max-width: 153px;
+    width: auto;
+    height: 100%;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+.nav-div:hover{
+    border: 1px solid white;
+}
+.div-items{
+    box-sizing: border-box;
+    margin: 0 1px 0 1px;
+    padding: 0 4px 8px 9px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+#text3{
+    color: white;
+    font-size: 12px;;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1;
+}
+#text4{
+    color: white;
+    font-size: 13px;
+    margin: 3px 0 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1;
+}
+#arrow-icon2{
+    width: 8px;
+    height: 4px;
+    margin: 25px 0 0 0;
+    color: white;
+}
+.nav-history{
+    box-sizing: border-box;
+    margin: 0 0 0 2px;
+    padding: 0 9px 10px 9px;
+    width: 98px;
+    height: 55px;
+    cursor: pointer;
+}
+#text5{
+    color: white;
+    font-size: 12px;;
+    margin: 13px 0 0 0;
+    display: block;
+}
+#text6{
+    color: white;
+    font-size: 13px;
+    display: block;
+}
+.nav-history:hover{
+    border: 1px solid white;
+}
+.nav-cart{
+    box-sizing: border-box;
+    margin: 0 9px 0 2px;
+    padding: 0 9px 11px 9px;
+    display: flex;
+    cursor: pointer;
+}
+.nav-cart:hover{
+    border: 1px white solid;
+}
+.text-cart{
+    margin: 0 0 0 5px;
+}
+#text7{
+    margin: 15px 0 0 0;
+    color: white;
+    font-size: 12px;
+    display: block;
+}
+#text8{
+    color: white;
+    font-size: 12px;
+    display: block;
+}
+.shopping-cart{
+    color: white;
+    font-size: 1.5em;
+    margin: 15px 0 0 0;
+}
