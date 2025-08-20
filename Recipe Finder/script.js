@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hiddenSelect = document.getElementById('items');
     const dropdownList = document.getElementById('dropdownList');
     const categoryDisplay = document.querySelector('.category-display')
+    let clearbtn = document.querySelector('button');
 
     function populateDropdown() {
         dropdownList.innerHTML = '';
@@ -21,6 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 categoriesSpan.textContent = selectedText;
                 hiddenSelect.value = selectedValue;
                 dropdownList.style.display = 'none';
+                if (!clearbtn) {
+                    clearbtn = document.createElement('button');
+                    categoryDisplay.appendChild(clearbtn);
+                    clearbtn.textContent = 'clear';
+                    clearbtn.classList.add('clearbtn');
+                }
+                return;
+
             });
 
             dropdownList.appendChild(dropdownItem);
