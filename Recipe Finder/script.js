@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hiddenSelect = document.getElementById('items');
     const dropdownList = document.getElementById('dropdownList');
     const categoryDisplay = document.querySelector('.category-display')
-    let clearbtn = document.querySelector('button');
+    let clearbtn = document.querySelector('.clearbtn');
 
     function populateDropdown() {
         dropdownList.innerHTML = '';
@@ -24,12 +24,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 dropdownList.style.display = 'none';
                 if (!clearbtn) {
                     clearbtn = document.createElement('button');
-                    categoryDisplay.appendChild(clearbtn);
+                    clearbtn.type = 'button';
                     clearbtn.textContent = 'clear';
                     clearbtn.classList.add('clearbtn');
+                    categoryDisplay.appendChild(clearbtn);
+                    clearbtn.addEventListener('click', () => {
+                        categoriesSpan.textContent = '';
+                        hiddenSelect.value = 'All Categories';
+                        clearbtn.remove();
+                        clearbtn = null;
+                    });
                 }
-                return;
-
             });
 
             dropdownList.appendChild(dropdownItem);
