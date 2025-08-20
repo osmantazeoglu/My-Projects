@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const categoriesSpan = document.querySelector('.categories');
     const hiddenSelect = document.getElementById('items');
     const dropdownList = document.getElementById('dropdownList');
+    const categoryDisplay = document.querySelector('.category-display')
 
     function populateDropdown() {
         dropdownList.innerHTML = '';
