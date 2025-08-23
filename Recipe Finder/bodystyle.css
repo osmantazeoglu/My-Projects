@@ -145,7 +145,7 @@ h1 {
 }
 
 .buttons {
-    margin-left: auto;
+    display: flex;
 }
 
 #recipe-name {
@@ -165,10 +165,12 @@ h1 {
     border: none;
     border-radius: 0 7px 7px 0;
     font-weight: bold;
-    margin-right: 15px;
+    margin: 0;
     cursor: pointer;
 }
-
+#ingredient:hover {
+    background-color: rgb(223, 221, 221);
+}
 #search-btn {
     background-color: rgba(38, 116, 233, 0.4);
     color: white;
@@ -178,6 +180,7 @@ h1 {
     width: 103px;
     height: 46px;
     cursor: no-drop;
+    margin-left: 20px;
 }
 
 .category-part {

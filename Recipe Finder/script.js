@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const categorySelect = document.querySelector('.category-select');
     const hiddenSelect = document.getElementById('items');
     const dropdownList = document.getElementById('dropdownList');
+    const nameButton = document.getElementById('recipe-name');
+    const ingredientButton = document.getElementById('ingredient');
+    const searchInput = document.getElementById('search-input');
 
     let categoriesSpan = null;
     let categoryDisplay = null;
@@ -79,6 +82,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
         });
     }
+
+    nameButton.addEventListener('click', function(){
+
+        nameButton.style.backgroundColor = 'rgb(38, 116, 233)';
+        nameButton.style.color = 'white';
+        ingredientButton.style.backgroundColor = 'rgb(240, 238, 238)';
+        ingredientButton.style.color = 'rgb(51, 51, 51)';
+        searchInput.placeholder = "Search by name...";
+
+    });
+
+    ingredientButton.addEventListener('click', function(){
+
+        ingredientButton.style.backgroundColor = 'rgb(38, 116, 233)';
+        ingredientButton.style.color = 'white';
+        nameButton.style.backgroundColor = 'rgb(240, 238, 238)';
+        nameButton.style.color = 'rgb(51, 51, 51)';
+        searchInput.placeholder = "Search by ingredient...";
+
+    });
+
 
     populateDropdown();
 
