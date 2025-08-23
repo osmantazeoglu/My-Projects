@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const categoryPart = document.querySelector('.category-part');
     const categorySelect = document.querySelector('.category-select');
-    let categoriesSpan = document.querySelector('.categories');
     const hiddenSelect = document.getElementById('items');
     const dropdownList = document.getElementById('dropdownList');
-    let categoryDisplay = document.querySelector('.category-display')
-    let clearbtn = document.querySelector('.clearbtn');
+
+    let categoriesSpan = null;
+    let categoryDisplay = null;
+    let clearbtn = null;
 
     function populateDropdown() {
         dropdownList.innerHTML = '';
@@ -22,21 +24,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 hiddenSelect.value = selectedValue;
                 dropdownList.style.display = 'none';
 
-                if (!categoryDisplay) {
-                    categoryDisplay = document.createElement('div')
-                    categoryDisplay.classList.add('category-display');
-                    const categoryResult = document.createElement('p');
-                    categoryResult.classList.add('category-result');
-                    categoryResult.textContent = 'Category:';
-                    if (!categoriesSpan) {
-                        categoriesSpan = document.createElement('span');
-                        categoriesSpan.classList.add('categories');
-                        categoriesSpan.textContent = selectedText;
+                if (categoriesSpan) {
+                    categoriesSpan.textContent = selectedText;
+
+                    if (selectedText === 'All Categories') {
+
+                        categoryDisplay.style.display = 'none';
+                    }
+                    else {
+                        categoryDisplay.style.display = '';
                     }
 
-                    categoryDisplay.append(categoryResult, categoriesSpan);
-
+                    return;
                 }
+                categoryDisplay = document.createElement('div')
+                categoryDisplay.classList.add('category-display');
+
+                const categoryResult = document.createElement('p');
+                categoryResult.classList.add('category-result');
+                categoryResult.textContent = 'Category:';
+
+                categoriesSpan = document.createElement('span');
+                categoriesSpan.classList.add('categories');
+                categoriesSpan.textContent = selectedText;
+                if (selectedText === 'All Categories') {
+
+                        categoryDisplay.style.display = 'none';
+                    }
+                    else {
+                        categoryDisplay.style.display = '';
+                    }
 
                 if (!clearbtn) {
                     clearbtn = document.createElement('button');
@@ -44,13 +61,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     clearbtn.textContent = 'clear';
                     clearbtn.classList.add('clearbtn');
                     categoryDisplay.appendChild(clearbtn);
+
                     clearbtn.addEventListener('click', () => {
-                        categoriesSpan.textContent = '';
+                        categoryDisplay.remove();
+                        categoryDisplay = null;
                         hiddenSelect.value = 'All Categories';
-                        clearbtn.remove();
                         clearbtn = null;
                     });
                 }
+
+                categoryDisplay.append(categoryResult, categoriesSpan, clearbtn);
+                categoryPart.appendChild(categoryDisplay);
+
             });
 
             dropdownList.appendChild(dropdownItem);
