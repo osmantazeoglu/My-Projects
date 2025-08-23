@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.container');
     const categoryPart = document.querySelector('.category-part');
     const categorySelect = document.querySelector('.category-select');
     const hiddenSelect = document.getElementById('items');
@@ -86,24 +87,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    nameButton.addEventListener('click', function () {
+    if (!temptext) {
+        temptext = document.createElement('div');
+        temptext.classList.add('temporarytext');
+        const text1 = document.createElement('span');
+        text1.classList.add('text1');
+        text1.textContent = "🔍";
+        const text2 = document.createElement('span');
+        text2.classList.add('text2');
+        text2.textContent = "No recipes found";
+        const text3 = document.createElement('span');
+        text3.classList.add('text3');
+        text3.textContent = "Try searching with different keywords or ingredients";
+        temptext.append(text1, text2, text3);
+        container.append(temptext);
+    }
 
+    nameButton.addEventListener('click', function () {
         nameButton.style.backgroundColor = 'rgb(38, 116, 233)';
         nameButton.style.color = 'white';
         ingredientButton.style.backgroundColor = 'rgb(240, 238, 238)';
         ingredientButton.style.color = 'rgb(51, 51, 51)';
         searchInput.placeholder = "Search by name...";
-
     });
 
     ingredientButton.addEventListener('click', function () {
-
         ingredientButton.style.backgroundColor = 'rgb(38, 116, 233)';
         ingredientButton.style.color = 'white';
         nameButton.style.backgroundColor = 'rgb(240, 238, 238)';
         nameButton.style.color = 'rgb(51, 51, 51)';
         searchInput.placeholder = "Search by ingredient...";
-
     });
 
     searchInput.addEventListener("input", function () {
@@ -138,24 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdownList.style.display = 'none';
         }
     });
-    if (!temptext) {
-        temptext = document.createElement('div');
-        temptext.classList.add('temporarytext');
-        const text1 = document.createElement('span');
-        text1.classList.add('text2');
-        text1.textContent = "🔍";
-        const text2 = document.createElement('span');
-        text2.classList.add('text2');
-        text2.textContent = "No recipes found";
-        const text3 = document.createElement('span');
-        text3.classList.add('text3');
-        text3.textContent = "Try searching with different keywords or ingredients";
-        temptext.append(text1, text2, text3);
-        container.insertBefore(temptext, todoList);
-    }
-    var count = $('#recipeCard-container .recipeCard').length;
-    if (count === 0 && !temptext) {
 
-    }
+
 
 });
