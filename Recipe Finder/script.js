@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const searchbtn = document.getElementById('search-btn');
 
+    let temptext = document.querySelector('.temporarytext');
+
     let categoriesSpan = null;
     let categoryDisplay = null;
     let clearbtn = null;
@@ -112,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
             searchbtn.style.cursor = 'pointer';
             searchbtn.style.backgroundColor = 'rgb(38, 116, 233)';
         }
-        else{
+        else {
             searchbtn.style.cursor = 'no-drop';
             searchbtn.style.backgroundColor = 'rgba(38, 116, 233, 0.4)';
         }
@@ -136,5 +138,24 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdownList.style.display = 'none';
         }
     });
+    if (!temptext) {
+        temptext = document.createElement('div');
+        temptext.classList.add('temporarytext');
+        const text1 = document.createElement('span');
+        text1.classList.add('text2');
+        text1.textContent = "🔍";
+        const text2 = document.createElement('span');
+        text2.classList.add('text2');
+        text2.textContent = "No recipes found";
+        const text3 = document.createElement('span');
+        text3.classList.add('text3');
+        text3.textContent = "Try searching with different keywords or ingredients";
+        temptext.append(text1, text2, text3);
+        container.insertBefore(temptext, todoList);
+    }
+    var count = $('#recipeCard-container .recipeCard').length;
+    if (count === 0 && !temptext) {
+
+    }
 
 });
