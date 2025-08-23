@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const categorySelect = document.querySelector('.category-select');
-    const categoriesSpan = document.querySelector('.categories');
+    let categoriesSpan = document.querySelector('.categories');
     const hiddenSelect = document.getElementById('items');
     const dropdownList = document.getElementById('dropdownList');
-    const categoryDisplay = document.querySelector('.category-display')
+    let categoryDisplay = document.querySelector('.category-display')
     let clearbtn = document.querySelector('.clearbtn');
 
     function populateDropdown() {
@@ -19,9 +19,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 event.stopPropagation();
                 const selectedText = event.target.textContent;
                 const selectedValue = event.target.getAttribute('data-value');
-                categoriesSpan.textContent = selectedText;
                 hiddenSelect.value = selectedValue;
                 dropdownList.style.display = 'none';
+
+                if (!categoryDisplay) {
+                    categoryDisplay = document.createElement('div')
+                    categoryDisplay.classList.add('category-display');
+                    const categoryResult = document.createElement('p');
+                    categoryResult.classList.add('category-result');
+                    categoryResult.textContent = 'Category:';
+                    if (!categoriesSpan) {
+                        categoriesSpan = document.createElement('span');
+                        categoriesSpan.classList.add('categories');
+                        categoriesSpan.textContent = selectedText;
+                    }
+
+                    categoryDisplay.append(categoryResult, categoriesSpan);
+
+                }
+
                 if (!clearbtn) {
                     clearbtn = document.createElement('button');
                     clearbtn.type = 'button';

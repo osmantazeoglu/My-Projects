@@ -248,7 +248,7 @@ h1 {
     justify-content: center;
     align-items: center;
 }
-#category-result{
+.category-result{
     color: rgba(94, 93, 93, 0.9);
 }
 .categories{
