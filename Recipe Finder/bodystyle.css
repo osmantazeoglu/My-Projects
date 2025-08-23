@@ -183,6 +183,12 @@ h1 {
     margin-left: 20px;
 }
 
+#search-btn:hover{
+
+    background-color: rgba(30, 104, 214, 0.4);
+    width: 110px;
+    height: 50px;
+}
 .category-part {
     display: flex;
     align-items: center;

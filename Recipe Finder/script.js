@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameButton = document.getElementById('recipe-name');
     const ingredientButton = document.getElementById('ingredient');
     const searchInput = document.getElementById('search-input');
+    const searchbtn = document.getElementById('search-btn');
 
     let categoriesSpan = null;
     let categoryDisplay = null;
@@ -52,11 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 categoriesSpan.textContent = selectedText;
                 if (selectedText === 'All Categories') {
 
-                        categoryDisplay.style.display = 'none';
-                    }
-                    else {
-                        categoryDisplay.style.display = '';
-                    }
+                    categoryDisplay.style.display = 'none';
+                }
+                else {
+                    categoryDisplay.style.display = '';
+                }
 
                 if (!clearbtn) {
                     clearbtn = document.createElement('button');
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    nameButton.addEventListener('click', function(){
+    nameButton.addEventListener('click', function () {
 
         nameButton.style.backgroundColor = 'rgb(38, 116, 233)';
         nameButton.style.color = 'white';
@@ -93,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
-    ingredientButton.addEventListener('click', function(){
+    ingredientButton.addEventListener('click', function () {
 
         ingredientButton.style.backgroundColor = 'rgb(38, 116, 233)';
         ingredientButton.style.color = 'white';
@@ -101,6 +102,20 @@ document.addEventListener('DOMContentLoaded', () => {
         nameButton.style.color = 'rgb(51, 51, 51)';
         searchInput.placeholder = "Search by ingredient...";
 
+    });
+
+    searchInput.addEventListener("input", function () {
+
+        const searchText = searchInput.value.trim();
+
+        if (searchText.length > 0) {
+            searchbtn.style.cursor = 'pointer';
+            searchbtn.style.backgroundColor = 'rgb(38, 116, 233)';
+        }
+        else{
+            searchbtn.style.cursor = 'no-drop';
+            searchbtn.style.backgroundColor = 'rgba(38, 116, 233, 0.4)';
+        }
     });
 
 
