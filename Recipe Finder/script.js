@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         categoryDisplay = null;
                         hiddenSelect.value = 'All Categories';
                         clearbtn = null;
+                        categoriesSpan = null;
                     });
                 }
 
