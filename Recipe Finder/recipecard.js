@@ -1,4 +1,4 @@
-const recipesData = [
+const recipes = [
 {
     id: 1,
     class: 'beef',
@@ -110,3 +110,8 @@ const recipesData = [
     clickText:'Click to view full recipe →'
 }
 ];
+
+function createRecipeCard(recipe){
+    const RecipesCard = document.createElement('div');
+    RecipesCard.classList.add('recipes-card');
+}
