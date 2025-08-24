@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         nameButton.style.backgroundColor = 'rgb(240, 238, 238)';
         nameButton.style.color = 'rgb(51, 51, 51)';
         searchInput.placeholder = "Search by ingredient...";
+
     });
 
     searchInput.addEventListener("input", function () {
