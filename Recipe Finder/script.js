@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         text3.textContent = "Try searching with different keywords or ingredients";
         temptext.append(text1, text2, text3);
         container.append(temptext);
+        temptext.style.display = 'none';
     }
 
     nameButton.addEventListener('click', function () {
