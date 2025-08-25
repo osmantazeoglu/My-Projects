@@ -1,6 +1,6 @@
 .recipeCard-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     margin-top: 50px;
     width: 85%;
@@ -15,11 +15,7 @@
     flex-direction: column;
     max-height: 341px;
     min-height: 340px;
-    max-width: 700px;
-    min-width: 300px;
-    width: auto;
     height: auto;
-    flex-grow: 1;
 }
 
 .recipe-card:hover {
@@ -31,6 +27,8 @@
     height: 192px;
     position: relative;
     border-radius: 15px 15px 0 0;
+    background-size: cover;
+    background-position: center;
 }
 
 .recipe-info {
@@ -47,14 +45,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: fit-content;
-    height: fit-content;
-    position: absolute;
-    top: 10px;
-    right: 10px;
     width: 35px;
     height: 35px;
     border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .favorite-icon:hover {
