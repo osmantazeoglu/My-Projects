@@ -16,10 +16,12 @@
     max-height: 341px;
     min-height: 340px;
     height: auto;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .recipe-card:hover {
     cursor: pointer;
+    transform: scale(1.03);
 }
 
 .recipe-images {
