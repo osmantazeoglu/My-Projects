@@ -117,7 +117,9 @@ function createRecipeCard(recipe) {
 
     recipeCard.innerHTML = `
         <div class="recipe-images">
-            <span class="favorite-icon">${recipe.favoriteIcon}</span>
+            <div class="icon-part">
+                <span class="favorite-icon">${recipe.favoriteIcon}</span>
+            </div>
         </div>
         <div class="recipe-info">
             <h3 class="recipe-title">${recipe.title}</h3>
