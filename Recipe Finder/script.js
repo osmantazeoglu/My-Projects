@@ -1,3 +1,21 @@
+const store = {
+    data: {},
+    subscribers: [],
+
+    subscribe: (fn) => {
+        store.subscribers.push(fn);
+        fn(store.data);
+        return () => {
+            store.subscribers = store.subscribers.filter(sub => sub !== fn);
+        };
+    },
+
+    update: (partialData) => {
+        Object.assign(store.data, partialData);
+        store.subscribers.forEach(fn => fn(store.data));
+    }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.container');
     const categoryPart = document.querySelector('.category-part');
@@ -91,12 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const recipeCardContainer = document.getElementById('recipeCard-container');
     const count = recipeCardContainer.querySelectorAll('recipe-card').length;
 
-    if (count !== 0) {
-        temptext.style.display = 'none';
-    }
-    else {
-        temptext.style.display = '';
-    }
+
     if (!temptext) {
         temptext = document.createElement('div');
         temptext.classList.add('temporarytext');
@@ -111,28 +124,47 @@ document.addEventListener('DOMContentLoaded', () => {
         text3.textContent = "Try searching with different keywords or ingredients";
         temptext.append(text1, text2, text3);
         container.append(temptext);
+    } else {
+        if (count !== 0) {
+            temptext.style.display = 'none';
+        }
+        else {
+            temptext.style.display = 'inline';
+        }
     }
 
-    nameButton.addEventListener('click', function () {
-        nameButton.style.backgroundColor = 'rgb(38, 116, 233)';
-        nameButton.style.color = 'white';
-        ingredientButton.style.backgroundColor = 'rgb(240, 238, 238)';
-        ingredientButton.style.color = 'rgb(51, 51, 51)';
-        searchInput.placeholder = "Search by name...";
-    });
+    store.data = {
+        activeFilterButton: 'name',
+        searchText: '',
+        Visible: false
+    }
 
-    ingredientButton.addEventListener('click', function () {
-        ingredientButton.style.backgroundColor = 'rgb(38, 116, 233)';
-        ingredientButton.style.color = 'white';
-        nameButton.style.backgroundColor = 'rgb(240, 238, 238)';
-        nameButton.style.color = 'rgb(51, 51, 51)';
-        searchInput.placeholder = "Search by ingredient...";
-    });
+    store.subscribe(newState => {
+        searchInput.placeholder = `Search by ${newState.activeFilterButton}...`;
 
-    searchInput.addEventListener("input", function () {
+        const activeButton = newState.activeFilterButton === 'name' ? nameButton : ingredientButton;
+        const inActiveButton = newState.activeFilterButton === 'name' ? ingredientButton : nameButton;
+        const hasSearch = newState.searchText.length > 0
 
-        const searchText = searchInput.value.trim();
+        activeButton.style.cssText = css`
+            background-color: rgb(38, 116, 233);
+            color: white;
+            opacity: ${hasSearch ? 0.5 : 1};
+        `
 
+        inActiveButton.style.cssText = css`
+            color: rgb(51, 51, 51);
+            background-color: rgb(240, 238, 238);
+            opacity: ${hasSearch ? 0.5 : 1};
+
+        `
+    })
+
+    nameButton.addEventListener('click', () => store.update({ activeFilterButton: 'name' }));
+    ingredientButton.addEventListener('click', () => store.update({ activeFilterButton: 'ingredient' }));
+
+    store.subscribe(newState => {
+        const searchText = newState.searchText;
         if (searchText.length > 0) {
             searchbtn.style.cursor = 'pointer';
             searchbtn.style.backgroundColor = 'rgb(38, 116, 233)';
@@ -141,26 +173,22 @@ document.addEventListener('DOMContentLoaded', () => {
             searchbtn.style.cursor = 'no-drop';
             searchbtn.style.backgroundColor = 'rgba(38, 116, 233, 0.4)';
         }
-    });
+    })
+
+    searchInput.addEventListener("input", () => store.update({ searchText: searchInput.value.trim() }));
 
 
     populateDropdown();
 
-    categorySelect.addEventListener('click', () => {
-        const Visible = dropdownList.style.display === 'block';
-        if (!Visible) {
-            dropdownList.style.display = 'block';
-        }
-        else {
-            dropdownList.style.display = 'none';
-        }
-    });
+    store.subscribe(newState => {
+        dropdownList.style.display = newState.Visible ? 'block' : 'none';
+    })
+    categorySelect.addEventListener('click', () => store.update({ Visible: !store.data.Visible }));
 
     document.addEventListener('click', (event) => {
         if (!categorySelect.contains(event.target) && !dropdownList.contains(event.target)) {
-            dropdownList.style.display = 'none';
+            store.update({ Visible: false })
         }
     });
-
 
 });
