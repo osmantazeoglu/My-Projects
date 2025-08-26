@@ -88,6 +88,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const recipeCardContainer = document.getElementById('recipeCard-container');
+    const count = recipeCardContainer.querySelectorAll('recipe-card').length;
+
+    if (count !== 0) {
+        temptext.style.display = 'none';
+    }
+    else {
+        temptext.style.display = '';
+    }
     if (!temptext) {
         temptext = document.createElement('div');
         temptext.classList.add('temporarytext');
@@ -102,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
         text3.textContent = "Try searching with different keywords or ingredients";
         temptext.append(text1, text2, text3);
         container.append(temptext);
-        temptext.style.display = 'none';
     }
 
     nameButton.addEventListener('click', function () {
@@ -119,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
         nameButton.style.backgroundColor = 'rgb(240, 238, 238)';
         nameButton.style.color = 'rgb(51, 51, 51)';
         searchInput.placeholder = "Search by ingredient...";
-
     });
 
     searchInput.addEventListener("input", function () {
@@ -154,7 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdownList.style.display = 'none';
         }
     });
-
 
 
 });

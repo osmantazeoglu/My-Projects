@@ -141,7 +141,6 @@ function createRecipeCard(recipe) {
 }
 document.addEventListener('DOMContentLoaded', () => {
     const recipeCardContainer = document.getElementById('recipeCard-container');
-
     recipes.forEach(recipe => {
         const card = createRecipeCard(recipe);
         recipeCardContainer.appendChild(card);
