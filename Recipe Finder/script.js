@@ -103,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         temptext.append(text1, text2, text3);
         container.append(temptext);
     }
+
     if (recipeCount > 0) {
         console.log("Kart var, işlemleri başlat!");
         temptext.style.display = 'none';
@@ -164,6 +165,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
-
-
-

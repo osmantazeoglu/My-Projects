@@ -148,7 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = createRecipeCard(recipe);
         recipeCardContainer.appendChild(card);
     });
-    
     recipeCount = recipeCardContainer.querySelectorAll('.recipe-card').length;
     console.log("Count:", recipeCount);
 });
