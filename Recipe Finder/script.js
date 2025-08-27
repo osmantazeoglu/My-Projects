@@ -16,22 +16,22 @@ const store = {
     }
 };
 
+const container = document.querySelector('.container');
+const categoryPart = document.querySelector('.category-part');
+const categorySelect = document.querySelector('.category-select');
+const hiddenSelect = document.getElementById('items');
+const dropdownList = document.getElementById('dropdownList');
+const nameButton = document.getElementById('recipe-name');
+const ingredientButton = document.getElementById('ingredient');
+const searchInput = document.getElementById('search-input');
+const searchbtn = document.getElementById('search-btn');
+
+let categoriesSpan = null;
+let categoryDisplay = null;
+let clearbtn = null;
+
 document.addEventListener('DOMContentLoaded', () => {
-    const container = document.querySelector('.container');
-    const categoryPart = document.querySelector('.category-part');
-    const categorySelect = document.querySelector('.category-select');
-    const hiddenSelect = document.getElementById('items');
-    const dropdownList = document.getElementById('dropdownList');
-    const nameButton = document.getElementById('recipe-name');
-    const ingredientButton = document.getElementById('ingredient');
-    const searchInput = document.getElementById('search-input');
-    const searchbtn = document.getElementById('search-btn');
 
-    let temptext = document.querySelector('.temporarytext');
-
-    let categoriesSpan = null;
-    let categoryDisplay = null;
-    let clearbtn = null;
 
     function populateDropdown() {
         dropdownList.innerHTML = '';
@@ -106,32 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const recipeCardContainer = document.getElementById('recipeCard-container');
-    const count = recipeCardContainer.querySelectorAll('recipe-card').length;
 
 
-    if (!temptext) {
-        temptext = document.createElement('div');
-        temptext.classList.add('temporarytext');
-        const text1 = document.createElement('span');
-        text1.classList.add('text1');
-        text1.textContent = "🔍";
-        const text2 = document.createElement('span');
-        text2.classList.add('text2');
-        text2.textContent = "No recipes found";
-        const text3 = document.createElement('span');
-        text3.classList.add('text3');
-        text3.textContent = "Try searching with different keywords or ingredients";
-        temptext.append(text1, text2, text3);
-        container.append(temptext);
-    } else {
-        if (count !== 0) {
-            temptext.style.display = 'none';
-        }
-        else {
-            temptext.style.display = 'inline';
-        }
-    }
+
 
     store.data = {
         activeFilterButton: 'name',
@@ -144,19 +121,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const activeButton = newState.activeFilterButton === 'name' ? nameButton : ingredientButton;
         const inActiveButton = newState.activeFilterButton === 'name' ? ingredientButton : nameButton;
-        const hasSearch = newState.searchText.length > 0
 
         activeButton.style.cssText = css`
             background-color: rgb(38, 116, 233);
             color: white;
-            opacity: ${hasSearch ? 0.5 : 1};
         `
 
         inActiveButton.style.cssText = css`
             color: rgb(51, 51, 51);
             background-color: rgb(240, 238, 238);
-            opacity: ${hasSearch ? 0.5 : 1};
-
         `
     })
 
@@ -177,7 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     searchInput.addEventListener("input", () => store.update({ searchText: searchInput.value.trim() }));
 
-
     populateDropdown();
 
     store.subscribe(newState => {
@@ -192,3 +164,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+let temptext = document.querySelector('.temporarytext');
+
+const recipeCardContainer = document.getElementById('recipeCard-container');
+const count = recipeCardContainer.querySelectorAll('.recipe-card').length;
+
+function recipesCheck() {
+    if (!temptext) {
+        temptext = document.createElement('div');
+        temptext.classList.add('temporarytext');
+        const text1 = document.createElement('span');
+        text1.classList.add('text1');
+        text1.textContent = "🔍";
+        const text2 = document.createElement('span');
+        text2.classList.add('text2');
+        text2.textContent = "No recipes found";
+        const text3 = document.createElement('span');
+        text3.classList.add('text3');
+        text3.textContent = "Try searching with different keywords or ingredients";
+        temptext.append(text1, text2, text3);
+        container.append(temptext);
+    } else {
+        temptext.style.display = count !== 0 ? 'none' : 'block';
+    }
+}

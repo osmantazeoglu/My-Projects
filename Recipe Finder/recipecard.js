@@ -145,4 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = createRecipeCard(recipe);
         recipeCardContainer.appendChild(card);
     });
+
+    recipesCheck();
+    
 });
