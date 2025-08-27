@@ -103,13 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         temptext.append(text1, text2, text3);
         container.append(temptext);
     }
-
-    if (recipeCount > 0) {
-        console.log("Kart var, işlemleri başlat!");
-        temptext.style.display = 'none';
-    } else {
-        console.log("Kart yok!");
-    }
+        temptext.style.display = recipeCount > 0 ? 'none' :'';
 
     store.subscribe(newState => {
         searchInput.placeholder = `Search by ${newState.activeFilterButton}...`;
