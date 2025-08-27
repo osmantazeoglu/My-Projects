@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         temptext.append(text1, text2, text3);
         container.append(temptext);
     }
-        temptext.style.display = recipeCount > 0 ? 'none' :'';
+        /*temptext.style.display = recipeCount > 0 ? 'none' :'';*/
 
     store.subscribe(newState => {
         searchInput.placeholder = `Search by ${newState.activeFilterButton}...`;

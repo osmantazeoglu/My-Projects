@@ -1,4 +1,4 @@
-const recipes = [
+export const recipes = [
     {
         id: 1,
         class: 'beef',
@@ -111,7 +111,7 @@ const recipes = [
     }
 ];
 
-function createRecipeCard(recipe) {
+export function createRecipeCard(recipe) {
     const recipeCard = document.createElement('div');
     recipeCard.classList.add('recipe-card');
 
@@ -140,7 +140,7 @@ function createRecipeCard(recipe) {
     return recipeCard;
 }
 
-let recipeCount = 0;
+/*let recipeCount = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
     const recipeCardContainer = document.getElementById('recipeCard-container');
@@ -149,9 +149,9 @@ document.addEventListener('DOMContentLoaded', () => {
         recipeCardContainer.appendChild(card);
     });
 
-    /*recipeCardContainer.innerHTML= '';*/
+    recipeCardContainer.innerHTML= '';
 
     recipeCount = recipeCardContainer.querySelectorAll('.recipe-card').length;
     console.log("Count:", recipeCount);
-});
+}); */
 
