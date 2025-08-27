@@ -26,12 +26,46 @@ const ingredientButton = document.getElementById('ingredient');
 const searchInput = document.getElementById('search-input');
 const searchbtn = document.getElementById('search-btn');
 let temptext = document.querySelector('.temporarytext');
-let categoriesSpan = null;
-let categoryDisplay = null;
-let clearbtn = null;
+const categoryDisplayContainer = document.getElementById('categoryDisplayContainer');
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    store.data = {
+        activeFilterButton: 'name',
+        searchText: '',
+        Visible: false,
+        selectedCategory: 'All Categories'
+    }
+
+    store.subscribe(newState => {
+        categoryDisplayContainer.innerHTML = "";
+
+        if (newState.selectedCategory === 'All Categories') return;
+
+        const categoryDisplay = document.createElement('div')
+        categoryDisplay.classList.add('category-display');
+
+        const categoryResult = document.createElement('p');
+        categoryResult.classList.add('category-result');
+        categoryResult.textContent = 'Category:';
+
+        const categoriesSpan = document.createElement('span');
+        categoriesSpan.classList.add('categories');
+        categoriesSpan.textContent = newState.selectedCategory;
+
+        const clearbtn = document.createElement('button');
+        clearbtn.type = 'button';
+        clearbtn.textContent = 'clear';
+        clearbtn.classList.add('clearbtn');
+        clearbtn.addEventListener('click', () => {
+            store.update({ selectedCategory: 'All Categories' });
+        });
+
+        categoryDisplay.append(categoryResult, categoriesSpan, clearbtn);
+        categoryDisplayContainer.appendChild(categoryDisplay);
+        categoryPart.appendChild(categoryDisplayContainer);
+
+    });
 
     function populateDropdown() {
         dropdownList.innerHTML = '';
@@ -47,65 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const selectedText = event.target.textContent;
                 const selectedValue = event.target.getAttribute('data-value');
                 hiddenSelect.value = selectedValue;
-                dropdownList.style.display = 'none';
-
-                if (categoriesSpan) {
-                    categoriesSpan.textContent = selectedText;
-
-                    if (selectedText === 'All Categories') {
-
-                        categoryDisplay.style.display = 'none';
-                    }
-                    else {
-                        categoryDisplay.style.display = '';
-                    }
-
-                    return;
-                }
-                categoryDisplay = document.createElement('div')
-                categoryDisplay.classList.add('category-display');
-
-                const categoryResult = document.createElement('p');
-                categoryResult.classList.add('category-result');
-                categoryResult.textContent = 'Category:';
-
-                categoriesSpan = document.createElement('span');
-                categoriesSpan.classList.add('categories');
-                categoriesSpan.textContent = selectedText;
-                if (selectedText === 'All Categories') {
-
-                    categoryDisplay.style.display = 'none';
-                }
-                else {
-                    categoryDisplay.style.display = '';
-                }
-
-                if (!clearbtn) {
-                    clearbtn = document.createElement('button');
-                    clearbtn.type = 'button';
-                    clearbtn.textContent = 'clear';
-                    clearbtn.classList.add('clearbtn');
-                    categoryDisplay.appendChild(clearbtn);
-
-                    clearbtn.addEventListener('click', () => {
-                        categoryDisplay.remove();
-                        categoryDisplay = null;
-                        hiddenSelect.value = 'All Categories';
-                        clearbtn = null;
-                        categoriesSpan = null;
-                    });
-                }
-
-                categoryDisplay.append(categoryResult, categoriesSpan, clearbtn);
-                categoryPart.appendChild(categoryDisplay);
-
+                store.update({ selectedCategory: selectedText, Visible: false });
             });
-
             dropdownList.appendChild(dropdownItem);
 
         });
     }
-
 
     if (!temptext) {
         temptext = document.createElement('div');
@@ -127,13 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
         temptext.style.display = 'none';
     } else {
         console.log("Kart yok!");
-    }
-
-
-    store.data = {
-        activeFilterButton: 'name',
-        searchText: '',
-        Visible: false
     }
 
     store.subscribe(newState => {
