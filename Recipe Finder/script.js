@@ -25,7 +25,7 @@ const nameButton = document.getElementById('recipe-name');
 const ingredientButton = document.getElementById('ingredient');
 const searchInput = document.getElementById('search-input');
 const searchbtn = document.getElementById('search-btn');
-
+let temptext = document.querySelector('.temporarytext');
 let categoriesSpan = null;
 let categoryDisplay = null;
 let clearbtn = null;
@@ -107,7 +107,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-
+    if (!temptext) {
+        temptext = document.createElement('div');
+        temptext.classList.add('temporarytext');
+        const text1 = document.createElement('span');
+        text1.classList.add('text1');
+        text1.textContent = "🔍";
+        const text2 = document.createElement('span');
+        text2.classList.add('text2');
+        text2.textContent = "No recipes found";
+        const text3 = document.createElement('span');
+        text3.classList.add('text3');
+        text3.textContent = "Try searching with different keywords or ingredients";
+        temptext.append(text1, text2, text3);
+        container.append(temptext);
+    }
+    if (recipeCount > 0) {
+        console.log("Kart var, işlemleri başlat!");
+        temptext.style.display = 'none';
+    } else {
+        console.log("Kart yok!");
+    }
 
 
     store.data = {
@@ -165,27 +185,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-let temptext = document.querySelector('.temporarytext');
 
-const recipeCardContainer = document.getElementById('recipeCard-container');
-const count = recipeCardContainer.querySelectorAll('.recipe-card').length;
 
-function recipesCheck() {
-    if (!temptext) {
-        temptext = document.createElement('div');
-        temptext.classList.add('temporarytext');
-        const text1 = document.createElement('span');
-        text1.classList.add('text1');
-        text1.textContent = "🔍";
-        const text2 = document.createElement('span');
-        text2.classList.add('text2');
-        text2.textContent = "No recipes found";
-        const text3 = document.createElement('span');
-        text3.classList.add('text3');
-        text3.textContent = "Try searching with different keywords or ingredients";
-        temptext.append(text1, text2, text3);
-        container.append(temptext);
-    } else {
-        temptext.style.display = count !== 0 ? 'none' : 'block';
-    }
-}

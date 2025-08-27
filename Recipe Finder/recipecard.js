@@ -139,13 +139,17 @@ function createRecipeCard(recipe) {
     recipeImageDiv.style.backgroundPosition = 'center';
     return recipeCard;
 }
+
+let recipeCount = 0;
+
 document.addEventListener('DOMContentLoaded', () => {
     const recipeCardContainer = document.getElementById('recipeCard-container');
     recipes.forEach(recipe => {
         const card = createRecipeCard(recipe);
         recipeCardContainer.appendChild(card);
     });
-
-    recipesCheck();
     
+    recipeCount = recipeCardContainer.querySelectorAll('.recipe-card').length;
+    console.log("Count:", recipeCount);
 });
+
