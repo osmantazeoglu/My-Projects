@@ -1,3 +1,5 @@
+import { recipes, createRecipeCard } from "./recipecard.js";
+
 const container = document.querySelector('.container');
 const categoryPart = document.querySelector('.category-part');
 const categorySelect = document.querySelector('.category-select');
@@ -9,6 +11,7 @@ const searchInput = document.getElementById('search-input');
 const searchbtn = document.getElementById('search-btn');
 let temptext = document.querySelector('.temporarytext');
 const categoryDisplayContainer = document.getElementById('categoryDisplayContainer');
+const recipeCardContainer = document.getElementById("recipeCard-container");
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -22,7 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
     store.subscribe(newState => {
         categoryDisplayContainer.innerHTML = "";
 
-        if (newState.selectedCategory === 'All Categories') return;
+        if (newState.selectedCategory === 'All Categories') {
+            recipeCardContainer.innerHTML = ""; // tüm kartları temizle
+            return;
+        };
 
         const categoryDisplay = document.createElement('div')
         categoryDisplay.classList.add('category-display');
@@ -47,6 +53,15 @@ document.addEventListener('DOMContentLoaded', () => {
         categoryDisplayContainer.appendChild(categoryDisplay);
         categoryPart.appendChild(categoryDisplayContainer);
 
+        recipeCardContainer.innerHTML = "";
+        const filtered = recipes.filter(r => r.class === newState.selectedCategory.toLowerCase());
+        if (filtered.length === 0) {
+            recipeCardContainer.innerHTML = "<p>Bu kategoride tarif bulunamadi.</p>";
+        } else {
+            filtered.forEach(r => recipeCardContainer.appendChild(createRecipeCard(r)));
+        }
+        recipeCount = recipeCardContainer.querySelectorAll('.recipe-card').length;
+        console.log("Count:", recipeCount);
     });
 
     function populateDropdown() {
@@ -85,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         temptext.append(text1, text2, text3);
         container.append(temptext);
     }
-        /*temptext.style.display = recipeCount > 0 ? 'none' :'';*/
+    temptext.style.display = recipeCount > 0 ? 'none' :'';
 
     store.subscribe(newState => {
         searchInput.placeholder = `Search by ${newState.activeFilterButton}...`;
