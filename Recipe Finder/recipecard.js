@@ -108,11 +108,23 @@ export const recipes = [
         mapicon: '<i id="mapicon" class="fas fa-location-dot map-icon"></i>',
         mapText: 'International',
         clickText: 'Click to view full recipe →'
+    },
+    {
+        id: 1,
+        class: 'chicken',
+        backgroundImage: 'https://www.themealdb.com/images/media/meals/020z181619788503.jpg',
+        favoriteIcon: '♡',
+        title: 'Ayam Percik',
+        mapicon: '<i id="mapicon" class="fas fa-location-dot map-icon"></i>',
+        mapText: 'International',
+        clickText: 'Click to view full recipe →'
     }
 ];
 
+let recipeCard = document.querySelector('.recipe-card');
+
 export function createRecipeCard(recipe) {
-    const recipeCard = document.createElement('div');
+    recipeCard = document.createElement('div');
     recipeCard.classList.add('recipe-card');
 
     recipeCard.innerHTML = `
@@ -139,19 +151,3 @@ export function createRecipeCard(recipe) {
     recipeImageDiv.style.backgroundPosition = 'center';
     return recipeCard;
 }
-
-/*let recipeCount = 0;
-
-document.addEventListener('DOMContentLoaded', () => {
-    const recipeCardContainer = document.getElementById('recipeCard-container');
-    recipes.forEach(recipe => {
-        const card = createRecipeCard(recipe);
-        recipeCardContainer.appendChild(card);
-    });
-
-    recipeCardContainer.innerHTML= '';
-
-    recipeCount = recipeCardContainer.querySelectorAll('.recipe-card').length;
-    console.log("Count:", recipeCount);
-}); */
-

@@ -12,6 +12,7 @@ const searchbtn = document.getElementById('search-btn');
 let temptext = document.querySelector('.temporarytext');
 const categoryDisplayContainer = document.getElementById('categoryDisplayContainer');
 const recipeCardContainer = document.getElementById("recipeCard-container");
+let recipeCount = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         categoryDisplayContainer.innerHTML = "";
 
         if (newState.selectedCategory === 'All Categories') {
-            recipeCardContainer.innerHTML = ""; // tüm kartları temizle
+            recipeCardContainer.innerHTML = "";
             return;
         };
 
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearbtn.classList.add('clearbtn');
         clearbtn.addEventListener('click', () => {
             store.update({ selectedCategory: 'All Categories' });
+            temptext.style.display = '';
         });
 
         categoryDisplay.append(categoryResult, categoriesSpan, clearbtn);
@@ -54,14 +56,17 @@ document.addEventListener('DOMContentLoaded', () => {
         categoryPart.appendChild(categoryDisplayContainer);
 
         recipeCardContainer.innerHTML = "";
-        const filtered = recipes.filter(r => r.class === newState.selectedCategory.toLowerCase());
+        const filtered = recipes.filter(recipe => recipe['class'] === newState.selectedCategory.toLowerCase());
         if (filtered.length === 0) {
-            recipeCardContainer.innerHTML = "<p>Bu kategoride tarif bulunamadi.</p>";
+            temptext.style.display = '';
         } else {
-            filtered.forEach(r => recipeCardContainer.appendChild(createRecipeCard(r)));
+            filtered.forEach(recipe => recipeCardContainer.appendChild(createRecipeCard(recipe)));
+
         }
         recipeCount = recipeCardContainer.querySelectorAll('.recipe-card').length;
-        console.log("Count:", recipeCount);
+        if (temptext && recipeCount > 0) {
+            temptext.style.display = 'none';
+        }
     });
 
     function populateDropdown() {
@@ -81,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 store.update({ selectedCategory: selectedText, Visible: false });
             });
             dropdownList.appendChild(dropdownItem);
-
         });
     }
 
@@ -100,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         temptext.append(text1, text2, text3);
         container.append(temptext);
     }
-    temptext.style.display = recipeCount > 0 ? 'none' :'';
+
 
     store.subscribe(newState => {
         searchInput.placeholder = `Search by ${newState.activeFilterButton}...`;
