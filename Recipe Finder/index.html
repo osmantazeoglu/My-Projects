@@ -10,6 +10,14 @@
     <title>Recipe Finder</title>
     <script>
         var css = (strings, ...values) => strings.reduce((out, str, i) => out + str + (values[i] ?? ""), "");
+
+        var html = (strings, ...values) => {
+            const hmlStr = strings.reduce((out, str, i) => out + str + (values[i] ?? ""), "");
+            const container = document.createElement('div');
+            container.innerHTML = hmlStr;
+
+            return container.children[0];
+        }
     </script>
 </head>
 
