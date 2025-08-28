@@ -1,5 +1,5 @@
 import { recipes, createRecipeCard } from "./recipecard.js";
-import { store } from './store.js'
+import { store } from './store.js';
 
 const container = document.querySelector('.container');
 const categoryPart = document.querySelector('.category-part');
@@ -27,31 +27,24 @@ store.subscribe(newState => {
 
     if (newState.selectedCategory === 'Emty Category') return;
 
-    const categoryDisplay = document.createElement('div')
-    categoryDisplay.classList.add('category-display');
+    const categoriesSpan = newState.selectedCategory;
 
-    const categoryResult = document.createElement('p');
-    categoryResult.classList.add('category-result');
-    categoryResult.textContent = 'Category:';
-
-    const categoriesSpan = document.createElement('span');
-    categoriesSpan.classList.add('categories');
-    categoriesSpan.textContent = newState.selectedCategory;
-
-    const clearbtn = html`
-        <button type="button" class="clearbtn">clear</button>
+    const categoryDisplay = html` 
+        <div class="category-display">
+            <p class="category-result">Category:</p>
+            <span class="categories">${categoriesSpan}</span>
+            <button class="clearbutton">clear</button>
+        </div>
     `
-
+    const clearbtn = categoryDisplay.querySelector('.clearbutton')
     clearbtn.addEventListener('click', () => {
         store.update({ selectedCategory: 'Emty Category' });
         recipeCardContainer.innerHTML = "";
         temptext.style.display = '';
     });
 
-    categoryDisplay.append(categoryResult, categoriesSpan, clearbtn);
     categoryDisplayContainer.appendChild(categoryDisplay);
     categoryPart.appendChild(categoryDisplayContainer);
-
 
     let filtered;
 
@@ -62,7 +55,6 @@ store.subscribe(newState => {
     else {
         filtered = recipes.filter(recipe => recipe['class'] === newState.selectedCategory);
     }
-
 
     if (filtered.length === 0) {
         temptext.style.display = '';
@@ -90,7 +82,6 @@ function populateDropdown() {
                 ${option.textContent}
             </div>
         `
-
         dropdownItem.addEventListener('click', (event) => {
             event.stopPropagation();
             const selectedValue = event.target.getAttribute('data-value');
