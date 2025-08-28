@@ -1,7 +1,7 @@
 export const recipes = [
     {
         id: 1,
-        class: 'beef',
+        class: 'Beef',
         backgroundImage: 'https://www.themealdb.com/images/media/meals/sytuqu1511553755.jpg',
         favoriteIcon: '♡',
         title: 'Beef and Mustard Pie',
@@ -11,7 +11,7 @@ export const recipes = [
     },
     {
         id: 2,
-        class: 'beef',
+        class: 'Beef',
         backgroundImage: 'https://www.themealdb.com/images/media/meals/wrssvt1511556563.jpg',
         favoriteIcon: '♡',
         title: 'Beef and Oyster Pie',
@@ -21,7 +21,7 @@ export const recipes = [
     },
     {
         id: 3,
-        class: 'beef',
+        class: 'Beef',
         backgroundImage: 'https://www.themealdb.com/images/media/meals/pkopc31683207947.jpg',
         favoriteIcon: '♡',
         title: 'Beef Asado',
@@ -31,7 +31,7 @@ export const recipes = [
     },
     {
         id: 4,
-        class: 'beef',
+        class: 'Beef',
         backgroundImage: 'https://www.themealdb.com/images/media/meals/vtqxtu1511784197.jpg',
         favoriteIcon: '♡',
         title: 'Beef Bourguignon',
@@ -41,7 +41,7 @@ export const recipes = [
     },
     {
         id: 5,
-        class: 'beef',
+        class: 'Beef',
         backgroundImage: 'https://www.themealdb.com/images/media/meals/ursuup1487348423.jpg',
         favoriteIcon: '♡',
         title: 'Beef Brisket Pot Roast',
@@ -51,7 +51,7 @@ export const recipes = [
     },
     {
         id: 6,
-        class: 'beef',
+        class: 'Beef',
         backgroundImage: 'https://www.themealdb.com/images/media/meals/41cxjh1683207682.jpg',
         favoriteIcon: '♡',
         title: 'Beef Caldereta',
@@ -61,7 +61,7 @@ export const recipes = [
     },
     {
         id: 7,
-        class: 'breakfast',
+        class: 'Breakfast',
         backgroundImage: 'https://www.themealdb.com/images/media/meals/hqaejl1695738653.jpg',
         favoriteIcon: '♡',
         title: 'Bread Omelette',
@@ -71,7 +71,7 @@ export const recipes = [
     },
     {
         id: 8,
-        class: 'breakfast',
+        class: 'Breakfast',
         backgroundImage: 'https://www.themealdb.com/images/media/meals/1550441882.jpg',
         favoriteIcon: '♡',
         title: 'Breakfast Potatoes',
@@ -81,7 +81,7 @@ export const recipes = [
     },
     {
         id: 9,
-        class: 'breakfast',
+        class: 'Breakfast',
         backgroundImage: 'https://www.themealdb.com/images/media/meals/utxryw1511721587.jpg',
         favoriteIcon: '♡',
         title: 'English Breakfast',
@@ -91,7 +91,7 @@ export const recipes = [
     },
     {
         id: 10,
-        class: 'breakfast',
+        class: 'Breakfast',
         backgroundImage: 'https://www.themealdb.com/images/media/meals/sqrtwu1511721265.jpg',
         favoriteIcon: '♡',
         title: 'Full English Breakfast',
@@ -101,7 +101,7 @@ export const recipes = [
     },
     {
         id: 11,
-        class: 'breakfast',
+        class: 'Breakfast',
         backgroundImage: 'https://www.themealdb.com/images/media/meals/thazgm1555350962.jpg',
         favoriteIcon: '♡',
         title: 'Home-made Mandazi',
@@ -111,7 +111,7 @@ export const recipes = [
     },
     {
         id: 1,
-        class: 'chicken',
+        class: 'Chicken',
         backgroundImage: 'https://www.themealdb.com/images/media/meals/020z181619788503.jpg',
         favoriteIcon: '♡',
         title: 'Ayam Percik',

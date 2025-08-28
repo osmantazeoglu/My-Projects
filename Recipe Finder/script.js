@@ -20,16 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
         activeFilterButton: 'name',
         searchText: '',
         Visible: false,
-        selectedCategory: 'All Categories'
+        selectedCategory: 'Emty Category'
     }
 
     store.subscribe(newState => {
         categoryDisplayContainer.innerHTML = "";
 
-        if (newState.selectedCategory === 'All Categories') {
-            recipeCardContainer.innerHTML = "";
-            return;
-        };
+        if (newState.selectedCategory === 'Emty Category') return;
 
         const categoryDisplay = document.createElement('div')
         categoryDisplay.classList.add('category-display');
@@ -47,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearbtn.textContent = 'clear';
         clearbtn.classList.add('clearbtn');
         clearbtn.addEventListener('click', () => {
-            store.update({ selectedCategory: 'All Categories' });
+            store.update({ selectedCategory: 'Emty Category' });
             temptext.style.display = '';
         });
 
@@ -56,13 +53,27 @@ document.addEventListener('DOMContentLoaded', () => {
         categoryPart.appendChild(categoryDisplayContainer);
 
         recipeCardContainer.innerHTML = "";
-        const filtered = recipes.filter(recipe => recipe['class'] === newState.selectedCategory.toLowerCase());
+
+        let filtered;
+        
+        if (newState.selectedCategory === 'All Categories') {
+            filtered = recipes;
+            categoryDisplayContainer.innerHTML = '';
+        }
+        else {
+            filtered = recipes.filter(recipe => recipe['class'] === newState.selectedCategory);
+        }
+
+
         if (filtered.length === 0) {
             temptext.style.display = '';
-        } else {
-            filtered.forEach(recipe => recipeCardContainer.appendChild(createRecipeCard(recipe)));
-
         }
+        else {
+            temptext.style.display = 'none';
+            filtered.forEach(recipe => recipeCardContainer.appendChild(createRecipeCard(recipe)));
+        }
+
+
         recipeCount = recipeCardContainer.querySelectorAll('.recipe-card').length;
         if (temptext && recipeCount > 0) {
             temptext.style.display = 'none';
