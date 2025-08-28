@@ -1,4 +1,5 @@
 import { recipes, createRecipeCard } from "./recipecard.js";
+import { store } from './store.js'
 
 const container = document.querySelector('.container');
 const categoryPart = document.querySelector('.category-part');

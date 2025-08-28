@@ -1,4 +1,4 @@
-var store = {
+export const store = {
     data: {},
     subscribers: [],
 
