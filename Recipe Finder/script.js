@@ -22,53 +22,71 @@ store.data = {
     selectedCategory: 'Emty Category'
 }
 
+const getFilteredRecipes = (selectedCategory) => {
+    if (selectedCategory === 'All Categories') {
+        return recipes;
+    }
+    return recipes.filter(recipe => recipe.class === selectedCategory);
+};
+
 store.subscribe(newState => {
+
+    renderCategory(newState);
+    renderRecipes(newState);
+
+});
+
+function renderCategory(newState) {
     categoryDisplayContainer.innerHTML = "";
-
     if (newState.selectedCategory === 'Emty Category') return;
-
-    const categoriesSpan = newState.selectedCategory;
+    if (newState.selectedCategory === 'All Categories') return;
 
     const categoryDisplay = html` 
         <div class="category-display">
             <p class="category-result">Category:</p>
-            <span class="categories">${categoriesSpan}</span>
+            <span class="categories">${newState.selectedCategory}</span>
             <button class="clearbutton">clear</button>
         </div>
-    `
-    const clearbtn = categoryDisplay.querySelector('.clearbutton')
-    clearbtn.addEventListener('click', () => {
-        store.update({ selectedCategory: 'Emty Category' });
-        recipeCardContainer.innerHTML = "";
-        temptext.style.display = '';
-    });
+    `;
+    const clearbtn = categoryDisplay.querySelector('.clearbutton');
+    clearbtn.addEventListener('click', clearCategory);
 
     categoryDisplayContainer.appendChild(categoryDisplay);
     categoryPart.appendChild(categoryDisplayContainer);
 
-    let filtered;
+}
+
+function clearCategory() {
+    store.update({ selectedCategory: 'Emty Category' });
+    recipeCardContainer.innerHTML = "";
+    temptext.style.display = '';
+}
+
+function renderRecipes(newState) {
+    recipeCardContainer.innerHTML = "";
+
+    const filtered = getFilteredRecipes(newState.selectedCategory);
 
     if (newState.selectedCategory === 'All Categories') {
-        filtered = recipes;
         categoryDisplayContainer.innerHTML = '';
-    }
-    else {
-        filtered = recipes.filter(recipe => recipe['class'] === newState.selectedCategory);
     }
 
     if (filtered.length === 0) {
         temptext.style.display = '';
-    }
-    else {
-        temptext.style.display = 'none';
-        filtered.forEach(recipe => recipeCardContainer.appendChild(createRecipeCard(recipe)));
+        return;
     }
 
+    temptext.style.display = 'none';
+    filtered.forEach(recipe =>
+        recipeCardContainer.appendChild(createRecipeCard(recipe))
+    );
+
     recipeCount = recipeCardContainer.querySelectorAll('.recipe-card').length;
-    if (temptext && recipeCount > 0) {
+    if (recipeCount > 0) {
         temptext.style.display = 'none';
     }
-});
+}
+
 
 function populateDropdown() {
     dropdownList.innerHTML = '';

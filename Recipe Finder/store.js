@@ -13,5 +13,5 @@ export const store = {
     update: (partialData) => {
         Object.assign(store.data, partialData);
         store.subscribers.forEach(fn => fn(store.data));
-    }
+    },
 };
