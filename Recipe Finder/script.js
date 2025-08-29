@@ -15,6 +15,22 @@ const categoryDisplayContainer = document.getElementById('categoryDisplayContain
 const recipeCardContainer = document.getElementById("recipeCard-container");
 let recipeCount = 0;
 
+if (!temptext) {
+    temptext = document.createElement('div');
+    temptext.classList.add('temporarytext');
+    const text1 = document.createElement('span');
+    text1.classList.add('text1');
+    text1.textContent = "🔍";
+    const text2 = document.createElement('span');
+    text2.classList.add('text2');
+    text2.textContent = "No recipes found";
+    const text3 = document.createElement('span');
+    text3.classList.add('text3');
+    text3.textContent = "Try searching with different keywords or ingredients";
+    temptext.append(text1, text2, text3);
+    container.append(temptext);
+}
+
 store.data = {
     activeFilterButton: 'name',
     searchText: '',
@@ -110,21 +126,7 @@ function populateDropdown() {
     });
 }
 
-if (!temptext) {
-    temptext = document.createElement('div');
-    temptext.classList.add('temporarytext');
-    const text1 = document.createElement('span');
-    text1.classList.add('text1');
-    text1.textContent = "🔍";
-    const text2 = document.createElement('span');
-    text2.classList.add('text2');
-    text2.textContent = "No recipes found";
-    const text3 = document.createElement('span');
-    text3.classList.add('text3');
-    text3.textContent = "Try searching with different keywords or ingredients";
-    temptext.append(text1, text2, text3);
-    container.append(temptext);
-}
+
 
 store.subscribe(newState => {
     searchInput.placeholder = `Search by ${newState.activeFilterButton}...`;
