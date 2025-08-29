@@ -35,7 +35,7 @@ store.data = {
     activeFilterButton: 'name',
     searchText: '',
     Visible: false,
-    selectedCategory: 'Emty Category'
+    selectedCategory: 'All Categories'
 }
 
 const getFilteredRecipes = (selectedCategory) => {
@@ -54,8 +54,8 @@ store.subscribe(newState => {
 
 function renderCategory(newState) {
     categoryDisplayContainer.innerHTML = "";
-    if (newState.selectedCategory === 'Emty Category') return;
-    if (newState.selectedCategory === 'All Categories') return;
+
+    if (!shouldShowCategory(newState.selectedCategory)) return;
 
     const categoryDisplay = html` 
         <div class="category-display">
@@ -64,6 +64,7 @@ function renderCategory(newState) {
             <button class="clearbutton">clear</button>
         </div>
     `;
+
     const clearbtn = categoryDisplay.querySelector('.clearbutton');
     clearbtn.addEventListener('click', clearCategory);
 
@@ -72,37 +73,51 @@ function renderCategory(newState) {
 
 }
 
+function shouldShowCategory(selectedCategory) {
+    return !(selectedCategory === 'All Categories');
+}
+
 function clearCategory() {
-    store.update({ selectedCategory: 'Emty Category' });
+    store.update({ selectedCategory: 'All Categories' });
     recipeCardContainer.innerHTML = "";
     temptext.style.display = '';
 }
 
 function renderRecipes(newState) {
-    recipeCardContainer.innerHTML = "";
 
+    clearRecipeContainer();
     const filtered = getFilteredRecipes(newState.selectedCategory);
+    handleAllCategoriesCase(newState.selectedCategory);
+    handleEmptyStateBeforeRender(recipes);
+    renderRecipeCards(filtered);
+    updateRecipeCount(recipeCount);
+}
 
-    if (newState.selectedCategory === 'All Categories') {
-        categoryDisplayContainer.innerHTML = '';
+function clearRecipeContainer() {
+    recipeCardContainer.innerHTML = "";
+}
+
+function handleAllCategoriesCase(selectedCategory) {
+    if (selectedCategory === 'All Categories') {
+        categoryDisplayContainer.innerHTML = "";
     }
+}
 
-    if (filtered.length === 0) {
-        temptext.style.display = '';
-        return;
-    }
+function handleEmptyStateBeforeRender(recipes) {
+    temptext.style.display = recipes.length === 0 ? "" : "none";
+}
 
+function renderRecipeCards(filtered) {
     temptext.style.display = 'none';
     filtered.forEach(recipe =>
         recipeCardContainer.appendChild(createRecipeCard(recipe))
     );
-
-    recipeCount = recipeCardContainer.querySelectorAll('.recipe-card').length;
-    if (recipeCount > 0) {
-        temptext.style.display = 'none';
-    }
 }
 
+function updateRecipeCount(recipeCount) {
+    recipeCount = recipeCardContainer.querySelectorAll('.recipe-card').length;
+    temptext.style.display = recipeCount > 0 ? "none" : "";
+}
 
 function populateDropdown() {
     dropdownList.innerHTML = '';
@@ -126,7 +141,16 @@ function populateDropdown() {
     });
 }
 
-
+store.subscribe(newState => {
+    const items = dropdownList.querySelectorAll('.custom-dropdown-item');
+    items.forEach(item => {
+        if (item.getAttribute('data-value') === newState.selectedCategory) {
+            item.classList.add('active-category');
+        } else {
+            item.classList.remove('active-category');
+        }
+    });
+});
 
 store.subscribe(newState => {
     searchInput.placeholder = `Search by ${newState.activeFilterButton}...`;
