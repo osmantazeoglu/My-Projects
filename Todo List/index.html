@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO LIST</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <div class="todoicon">
+                <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSTUZ9E8OhFT6f42QfCljL3TcA3Mg-KOcgfM4lbRnf3UiMjeMrc"
+                    alt="" id="todoimg">
+            </div>
+            <h1>Todo List</h1>
+        </div>
+        <div class="input-area">
+            <input type="text" id="todoinput" placeholder="Add your new todo">
+            <label for="imginp" id="imgbtn">IMG</label>
+            <input type="file" accept="image/jpeg, image/png, image/jpg" id="imginp">
+            <button id="addbtn">+</button>
+        </div>
+        <ul id="todolist">
+        </ul>
+        <div class="last">
+            <p id="text">You have <span id="taskcount">0</span> pending <span id="veriabletext">tasks</span></p>
+            <button id="clearbtn">Clear All</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
