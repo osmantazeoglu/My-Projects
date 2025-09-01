@@ -1,0 +1,101 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  align-items: center;
+  background-color: white;
+
+}
+
+#todo-container {
+  border: 1px solid black;
+  padding: 2rem;
+}
+
+.todo-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#todo-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.input-area {
+  display: flex;
+  width: 100%;
+}
+
+#todo-input {
+  flex-grow: 1;
+  width: 100%;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+#addbtn {
+  border: none;
+  width: 70px;
+  height: 50px;
+  background-color: rgb(173, 48, 173);
+  margin-left: 5px;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#imgbtn {
+  border: none;
+  width: 70px;
+  height: 50px;
+  background-color: rgb(89, 149, 218);
+  margin-left: 5px;
+  border-radius: 5px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 10px 0 0 0;
+  padding: 10px 0 10px 0;
+  width: 400px;
+  height: 400px;
+}
+
+.list-item {
+  background-color: rgb(240, 237, 237);
+  padding: 10px 10px 10px 40px;
+  margin: 0 0 10px 0;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+  position: relative;
+  height: auto;
+  flex-wrap: wrap;
+  min-height: 30px;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+#delbtn {
+  background-color: rgb(236, 76, 76);
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+}
