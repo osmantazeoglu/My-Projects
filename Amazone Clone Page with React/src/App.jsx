@@ -61,17 +61,67 @@ function NavbarRight() {
 }
 
 function ProductCard({ product }) {
+    const formatPrice = (price) => {
+        const [whole, decimal] = price.toString().split('.');
+        return {
+            whole: whole,
+            decimal: decimal ? decimal : '00'
+        };
+    };
+
+    const formatDeliveryDate = (deliveryText) => {
+        // Extract dates from delivery text and format them
+        const dateRegex = /(\w+),?\s+(\w+)\s+(\d+)/g;
+        let formattedText = deliveryText;
+        let match;
+        
+        while ((match = dateRegex.exec(deliveryText)) !== null) {
+            const [fullMatch, day, month, date] = match;
+            const formattedDate = `${date} ${month} ${day}`;
+            formattedText = formattedText.replace(fullMatch, formattedDate);
+        }
+        
+        return formattedText;
+    };
+
+    const priceParts = formatPrice(product.price);
+    const formattedDelivery = formatDeliveryDate(product.deliveryDate);
+
     return (
         <div className="product-card">
-            <img src={product.image} alt={product.title} className="product-image" />
-            <h3 className="product-title">{product.title}</h3>
-            <p className="product-author">{product.author}</p>
-            <p className="product-rating">⭐ {product.rating} ({product.reviewCount} reviews)</p>
-            <p className="product-price"><span className="old-price">{product.price} TL</span></p>
-            <span className="product-discount">{product.discount}</span>
-            <p className='discount-text'>discount promotion is available</p>
-            <p className="delivery">{product.deliveryDate}</p>
-            <button id='addcart'>Add to cart</button>
+            <div className="product-image">
+                <img src={product.image} alt={product.title} className="product-img" />
+            </div>
+            <div className="product-info">
+                <h3 className="product-title">{product.title}</h3>
+                <p className="product-author">{product.author}</p>
+                
+                <div className="product-rating">
+                    <span className="stars">
+                        {'★'.repeat(Math.floor(product.rating))}
+                        {'☆'.repeat(5 - Math.floor(product.rating))}
+                    </span>
+                    <span className="rating-text">{product.rating}</span>
+                    <span className="review-count">({product.reviewCount})</span>
+                </div>
+                
+                <div className="product-price">
+                    <span className="price-whole">{priceParts.whole}</span>
+                    <span className="price-decimal">,{priceParts.decimal}</span>
+                    <span className="price-currency"> TL</span>
+                </div>
+                
+                <div className="product-discount">
+                    {product.discount.toFixed(2)} TL oranında indirim
+                </div>
+                <p className="discount-text">promosyonu mevcut</p>
+                
+                <p className="delivery">
+                    {formattedDelivery}
+                </p>
+                
+                <button id="addcart">Sepete ekle</button>
+            </div>
         </div>
     )
 }
@@ -96,7 +146,7 @@ function App() {
                 <NavbarRight />
             </div>
             <div className="product-main">
-                {products.length > 0 ? (products.map(p => (<ProductCard key={p.id} product={p} />))) : (<p>Yükleniyor...</p>)}
+                {products.length > 0 ? (products.map(p => (<ProductCard key={p.id} product={p} />))) : (<div className="loading">Yükleniyor...</div>)}
             </div>
 
         </div>

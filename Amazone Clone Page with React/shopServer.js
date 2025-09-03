@@ -59,6 +59,127 @@ const products = [
         price: 99.00,
         discount: 50.00,
         deliveryDate: "FREE delivery on orders over 300 TL for products delivered by Amazon on Wednesday, September 10"
+    },
+    {
+        id: 15,
+        image: "https://img.kitapyurdu.com/v1/getImage/fn:12057316/wh:true/wi:800",
+        title: "Mor Gece",
+        author: "Virginia Woolf ve Selin Arslan",
+        rating: 4.4,
+        reviewCount: 189,
+        price: 87.90,
+        discount: 25.00,
+        deliveryDate: "FREE delivery on orders over 300 TL for products delivered by Amazon on Wednesday, September 10"
+    },
+    {
+        id: 16,
+        image: "https://img.kitapyurdu.com/v1/getImage/fn:12057317/wh:true/wi:800",
+        title: "Kırmızı Gül Bahçesi",
+        author: "Haruki Murakami ve Deniz Yılmaz",
+        rating: 4.9,
+        reviewCount: 567,
+        price: 189.50,
+        discount: 80.00,
+        deliveryDate: "FREE delivery on orders over 300 TL for products delivered by Amazon on Wednesday, September 10"
+    },
+    {
+        id: 17,
+        image: "https://img.kitapyurdu.com/v1/getImage/fn:12057318/wh:true/wi:800",
+        title: "Mavi Deniz Masalları",
+        author: "Isabel Allende ve Zeynep Kaya",
+        rating: 4.7,
+        reviewCount: 234,
+        price: 156.80,
+        discount: 65.00,
+        deliveryDate: "FREE delivery on orders over 300 TL for products delivered by Amazon on Wednesday, September 10"
+    },
+    {
+        id: 18,
+        image: "https://img.kitapyurdu.com/v1/getImage/fn:12057319/wh:true/wi:800",
+        title: "Yeşil Yaprak Rüzgarı",
+        author: "Kazuo Ishiguro ve Ahmet Demir",
+        rating: 4.6,
+        reviewCount: 345,
+        price: 142.30,
+        discount: 55.00,
+        deliveryDate: "FREE delivery on orders over 300 TL for products delivered by Amazon on Wednesday, September 10"
+    },
+    {
+        id: 19,
+        image: "https://img.kitapyurdu.com/v1/getImage/fn:12057320/wh:true/wi:800",
+        title: "Altın Güneş Işığı",
+        author: "Salman Rushdie ve Leyla Öz",
+        rating: 4.8,
+        reviewCount: 456,
+        price: 178.90,
+        discount: 70.00,
+        deliveryDate: "FREE delivery on orders over 300 TL for products delivered by Amazon on Wednesday, September 10"
+    },
+    {
+        id: 20,
+        image: "https://img.kitapyurdu.com/v1/getImage/fn:12057321/wh:true/wi:800",
+        title: "Gümüş Ay Parlaması",
+        author: "Chimamanda Ngozi Adichie ve Selin Arslan",
+        rating: 4.5,
+        reviewCount: 289,
+        price: 134.60,
+        discount: 45.00,
+        deliveryDate: "FREE delivery on orders over 300 TL for products delivered by Amazon on Wednesday, September 10"
+    },
+    {
+        id: 21,
+        image: "https://img.kitapyurdu.com/v1/getImage/fn:12057322/wh:true/wi:800",
+        title: "Turkuaz Gökyüzü",
+        author: "Jhumpa Lahiri ve Can Özkan",
+        rating: 4.7,
+        reviewCount: 378,
+        price: 167.40,
+        discount: 60.00,
+        deliveryDate: "FREE delivery on orders over 300 TL for products delivered by Amazon on Wednesday, September 10"
+    },
+    {
+        id: 22,
+        image: "https://img.kitapyurdu.com/v1/getImage/fn:12057323/wh:true/wi:800",
+        title: "Mor Gölge Dansı",
+        author: "Toni Morrison ve Zeynep Tamer",
+        rating: 4.9,
+        reviewCount: 523,
+        price: 198.70,
+        discount: 75.00,
+        deliveryDate: "FREE delivery on orders over 300 TL for products delivered by Amazon on Wednesday, September 10"
+    },
+    {
+        id: 23,
+        image: "https://img.kitapyurdu.com/v1/getImage/fn:12057324/wh:true/wi:800",
+        title: "Kırmızı Şafak Vakti",
+        author: "Gabriel García Márquez ve Emre Gül",
+        rating: 4.6,
+        reviewCount: 412,
+        price: 145.80,
+        discount: 50.00,
+        deliveryDate: "FREE delivery on orders over 300 TL for products delivered by Amazon on Wednesday, September 10"
+    },
+    {
+        id: 24,
+        image: "https://img.kitapyurdu.com/v1/getImage/fn:12057325/wh:true/wi:800",
+        title: "Mavi Rüya Gecesi",
+        author: "Yann Martel ve Cagla Soykan",
+        rating: 4.8,
+        reviewCount: 334,
+        price: 189.20,
+        discount: 80.00,
+        deliveryDate: "FREE delivery on orders over 300 TL for products delivered by Amazon on Wednesday, September 10"
+    },
+    {
+        id: 25,
+        image: "https://img.kitapyurdu.com/v1/getImage/fn:12057326/wh:true/wi:800",
+        title: "Yeşil Orman Sırrı",
+        author: "Paulo Coelho ve Mehmet Yılmaz",
+        rating: 4.7,
+        reviewCount: 456,
+        price: 156.90,
+        discount: 65.00,
+        deliveryDate: "FREE delivery on orders over 300 TL for products delivered by Amazon on Wednesday, September 10"
     }
 ];
 // In-memory basket storage (in a real app, this would be in a database)
