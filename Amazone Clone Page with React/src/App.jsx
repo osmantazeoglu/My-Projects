@@ -14,7 +14,7 @@ function NavbarLeft() {
             <div className="navglobal">
                 <FaMapMarkerAlt id='mapicon' />
                 <div className="maptext">
-                    <span id='text1'>Buyer:Osman</span>
+                    <span id='text1'>Buyer: Osman</span>
                     <span id='text2'>Gaziantep 27580</span>
                 </div>
             </div>
