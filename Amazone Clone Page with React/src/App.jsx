@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css'
+import './ProductCard.css'
 import { FaMapMarkerAlt, FaSearch, FaCaretDown } from "react-icons/fa";
 import { BsCart3 } from "react-icons/bs";
 
@@ -36,18 +37,18 @@ function NavbarCenter() {
 function NavbarRight() {
     return (
         <div className="navbar-right">
-            <div class="nav-div">
-                <div class="div-text">
+            <div className="nav-div">
+                <div className="div-text">
                     <span id="text3">Osman</span>
                     <span id="text4">Accounts and Lists</span>
                 </div>
                 <FaCaretDown className="down-icon" />
             </div>
-            <div class="nav-history">
+            <div className="nav-history">
                 <span id="text5">Refunds</span>
                 <span id="text6">and Orders</span>
             </div>
-            <div class="nav-cart">
+            <div className="nav-cart">
                 <BsCart3 className='cart-icon' />
                 <span className="cart-count">0</span>
                 <div className="cart-text">
@@ -55,6 +56,22 @@ function NavbarRight() {
                     <span>Cart</span>
                 </div>
             </div>
+        </div>
+    )
+}
+
+function ProductCard({ product }) {
+    return (
+        <div className="product-card">
+            <img src={product.image} alt={product.title} className="product-image" />
+            <h3 className="product-title">{product.title}</h3>
+            <p className="product-author">{product.author}</p>
+            <p className="product-rating">⭐ {product.rating} ({product.reviewCount} reviews)</p>
+            <p className="product-price"><span className="old-price">{product.price} TL</span></p>
+            <span className="product-discount">{product.discount}</span>
+            <p className='discount-text'>discount promotion is available</p>
+            <p className="delivery">{product.deliveryDate}</p>
+            <button id='addcart'>Add to cart</button>
         </div>
     )
 }
@@ -78,15 +95,10 @@ function App() {
                 <NavbarCenter />
                 <NavbarRight />
             </div>
-
-            <div style={{ padding: "20px" }}>
-                <h2>Ürünler</h2>
-                <ul>
-                    {products.map((p, index) => (
-                        <li key={index}>{JSON.stringify(p)}</li>
-                    ))}
-                </ul>
+            <div className="product-main">
+                {products.length > 0 ? (products.map(p => (<ProductCard key={p.id} product={p} />))) : (<p>Yükleniyor...</p>)}
             </div>
+
         </div>
     )
 }

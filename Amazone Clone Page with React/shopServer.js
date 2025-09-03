@@ -14,7 +14,7 @@ const products = [
         reviewCount: 139,
         price: 143.00,
         discount: 50.00,
-        deliveryDate: "11 Ağu Cum"
+        deliveryDate: "FREE delivery on orders over 300 TL for products delivered by Amazon on Wednesday, September 10"
     },
     {
         id: 2,
@@ -25,7 +25,7 @@ const products = [
         reviewCount: 17,
         price: 72.00,
         discount: 50.00,
-        deliveryDate: "11 Ağu Cum"
+        deliveryDate: "FREE delivery on orders over 300 TL for products delivered by Amazon on Wednesday, September 10"
     },
     {
         id: 3,
@@ -35,18 +35,19 @@ const products = [
         rating: 4.2,
         reviewCount: 261,
         price: 2117.70,
-        deliveryDate: "Stokta sadece 1 adet kaldi."
+        discount: 50.00,
+        deliveryDate: "FREE delivery on orders over 300 TL for products delivered by Amazon on Wednesday, September 10"
     },
     {
         id: 4,
         image: "https://img.kitapyurdu.com/v1/getImage/fn:11754005/wh:true/wi:800",
         title: "Sendeki Yüz Bende Olsa",
-        author: "[Yazar] France Chal[Çevirmen] Türkan Colak",
+        author: "[Yazar] France Chal",
         rating: 5.0,
         reviewCount: 2,
         price: 131.78,
         discount: 50.00,
-        deliveryDate: "9 Ağu Cmt"
+        deliveryDate: "FREE delivery on orders over 300 TL for products delivered by Amazon on Wednesday, September 10"
     },
     {
         id: 5,
@@ -57,7 +58,7 @@ const products = [
         reviewCount: 3,
         price: 99.00,
         discount: 50.00,
-        deliveryDate: "9 Ağu Cmt"
+        deliveryDate: "FREE delivery on orders over 300 TL for products delivered by Amazon on Wednesday, September 10"
     }
 ];
 // In-memory basket storage (in a real app, this would be in a database)
@@ -70,7 +71,7 @@ const getBasketWithProducts = () => {
     });
 }
 
-const wait = () => new Promise(res=>setTimeout(res, 1000))
+const wait = () => new Promise(res => setTimeout(res, 1000))
 
 // GET /api/products - Get all products
 app.get('/api/products', async (req, res) => {
@@ -156,6 +157,6 @@ app.post('/api/basket/clear', async (req, res) => {
 
 
 
-app.listen(3001, ()=>{
+app.listen(3001, () => {
     console.log('Server Started')
 })
