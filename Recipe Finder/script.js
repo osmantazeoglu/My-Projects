@@ -74,7 +74,7 @@ function renderCategory(newState) {
 }
 
 function shouldShowCategory(selectedCategory) {
-    return !(selectedCategory === 'All Categories');
+    return (!selectedCategory === 'All Categories');
 }
 
 function clearCategory() {
