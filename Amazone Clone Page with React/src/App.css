@@ -50,6 +50,7 @@
     cursor: pointer;
     padding-left: 10px;
     border: 1px solid rgb(21, 30, 37);
+    color: white;
 }
 
 .navglobal:hover {
@@ -64,17 +65,14 @@
 }
 
 #text1 {
-    color: white;
     font-size: 13px;
 }
 
 #text2 {
-    color: white;
     font-size: 14px;
 }
 
 #mapicon {
-    color: white;
     font-size: 20px;
     margin-top: 17px;
     margin-right: 5px;
@@ -129,12 +127,104 @@
 }
 
 .navbar-right {
-    width: 385px;
+    width: 390px;
     height: 100%;
     box-sizing: border-box;
     padding: 0 0 2px 0;
-    border: 1px solid yellow;
     overflow: hidden;
     flex-shrink: 0;
     margin-left: 10px;
+    display: flex;
+}
+
+.nav-div {
+    display: flex;
+    width: 160px;
+    align-items: center;
+    padding-left: 10px;
+    border: 1px solid rgb(21, 30, 37);
+    box-sizing: border-box;
+    margin: 5px;
+}
+
+.nav-div:hover {
+    border: 1px solid white;
+}
+
+.div-text {
+    display: flex;
+    flex-direction: column;
+}
+
+#text3,
+#text4 {
+    color: white;
+    font-size: 14px;
+}
+
+.down-icon {
+    color: white;
+    margin-top: 14px;
+    margin-left: 5px;
+}
+
+.nav-history {
+    border: 1px solid rgb(21, 30, 37);
+    box-sizing: border-box;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 12px;
+    margin: 5px 0 5px 5px;
+}
+
+.nav-history:hover {
+    border: 1px solid white;
+}
+
+#text5,
+#text6 {
+    color: white;
+    font-size: 14px;
+}
+
+.nav-cart {
+    border: 1px solid rgb(21, 30, 37);
+    width: 130px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    justify-content: center;
+    margin: 5px 5px 5px 0;
+}
+
+.nav-cart:hover {
+    border: 1px solid white;
+}
+
+.cart-icon {
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.cart-count {
+    position: absolute;
+    top: 2px;
+    left: 35px;
+    font-size: 16px;
+    font-weight: bold;
+    color: orange;
+}
+
+.cart-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: white;
+    line-height: 1.2;
 }
