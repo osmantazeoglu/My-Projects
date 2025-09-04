@@ -200,7 +200,6 @@
     transform: translateY(0);
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
     .product-main {
         padding: 10px;
