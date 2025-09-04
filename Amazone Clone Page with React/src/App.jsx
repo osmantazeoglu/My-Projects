@@ -3,6 +3,7 @@ import './App.css'
 import './ProductCard.css'
 import { FaMapMarkerAlt, FaSearch, FaCaretDown } from "react-icons/fa";
 import { BsCart3 } from "react-icons/bs";
+import ProductCard from './components/ProductCard';
 
 function NavbarLeft() {
   return (
@@ -60,75 +61,6 @@ function NavbarRight({ cartCount }) {
   )
 }
 
-function ProductCard({ product, setCartCount }) {
-  const formatPrice = (price) => {
-    const [whole, decimal] = price.toString().split('.');
-    return {
-      whole,
-      decimal: decimal ? decimal : '00'
-    };
-  };
-
-  const formatDeliveryDate = (deliveryText) => {
-    const dateRegex = /(\w+),?\s+(\w+)\s+(\d+)/g;
-    let formattedText = deliveryText;
-    let match;
-
-    while ((match = dateRegex.exec(deliveryText)) !== null) {
-      const [fullMatch, day, month, date] = match;
-      const formattedDate = `${date} ${month} ${day}`;
-      formattedText = formattedText.replace(fullMatch, formattedDate);
-    }
-
-    return formattedText;
-  };
-
-  const priceParts = formatPrice(product.price);
-  const formattedDelivery = formatDeliveryDate(product.deliveryDate);
-
-  const addCart = (id) => {
-    console.log("Sepete eklenen ürün ID:", id);
-    setCartCount(prev => prev + 1);
-  };
-
-  return (
-    <div className="product-card">
-      <div className="product-image">
-        <img src={product.image} alt={product.title} className="product-img" />
-      </div>
-      <div className="product-info">
-        <h3 className="product-title">{product.title}</h3>
-        <p className="product-author">{product.author}</p>
-
-        <div className="product-rating">
-          <span className="stars">
-            {'★'.repeat(Math.floor(product.rating))}
-            {'☆'.repeat(5 - Math.floor(product.rating))}
-          </span>
-          <span className="rating-text">{product.rating}</span>
-          <span className="review-count">({product.reviewCount})</span>
-        </div>
-
-        <div className="product-price">
-          <span className="price-whole">{priceParts.whole}</span>
-          <span className="price-decimal">,{priceParts.decimal}</span>
-          <span className="price-currency"> TL</span>
-        </div>
-
-        <div className="product-discount">
-          {product.discount.toFixed(2)} TL oranında indirim
-        </div>
-        <p className="discount-text">promosyonu mevcut</p>
-
-        <p className="delivery">
-          {formattedDelivery}
-        </p>
-
-        <button id='addcart' onClick={() => addCart(product.id)}>Sepete ekle</button>
-      </div>
-    </div>
-  )
-}
 
 function App() {
   const [products, setProducts] = useState([]);
