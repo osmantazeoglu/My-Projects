@@ -8,6 +8,7 @@ import AddToCartButton from './AddToCartButton';
 const ProductCard = ({ product, setCartCount }) => {
   const handleAddToCart = () => {
     setCartCount(prev => prev + 1);
+    console.log("sepete eklenen kitap id:", product.id);
   };
 
   return (
