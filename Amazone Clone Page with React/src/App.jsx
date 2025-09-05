@@ -4,6 +4,7 @@ import './ProductCard.css'
 import { FaMapMarkerAlt, FaSearch, FaCaretDown } from "react-icons/fa";
 import { BsCart3 } from "react-icons/bs";
 import ProductCard from './components/ProductCard';
+import Cart from './components/basket';
 
 function NavbarLeft() {
   return (
@@ -90,8 +91,11 @@ function App() {
             ))
           : <div className="loading">Yükleniyor...</div>}
       </div>
+      <div>
+        <Cart setCartCount={setCartCount}/>
+      </div>
     </div>
-  )
+  );
 }
 
 export default App;

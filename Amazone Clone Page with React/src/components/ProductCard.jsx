@@ -5,23 +5,29 @@ import ProductDiscount from './ProductDiscount';
 import ProductDelivery from './ProductDelivery';
 import AddToCartButton from './AddToCartButton';
 
-const ProductCard = ({ product, setCartCount }) => {
+const ProductCard = ({ product }) => {
   const handleAddToCart = () => {
-    setCartCount(prev => prev + 1);
-    console.log("sepete eklenen kitap id:", product.id);
+    fetch(`http://localhost:3001/api/add-to-basket/${product.id}`, {
+      method: "POST",
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log("Sepete ekleme Api cevabi:", data);
+      })
+      .catch(err => console.log("Sepete ekleme hatasi:", err));
   };
 
   return (
     <div className="product-card">
       <ProductImage image={product.image} title={product.title} />
-      
+
       <div className="product-info">
         <h3 className="product-title">{product.title}</h3>
         <p className="product-author">{product.author}</p>
 
-        <ProductRating 
-          rating={product.rating} 
-          reviewCount={product.reviewCount} 
+        <ProductRating
+          rating={product.rating}
+          reviewCount={product.reviewCount}
         />
 
         <ProductPrice price={product.price} />
@@ -30,8 +36,8 @@ const ProductCard = ({ product, setCartCount }) => {
 
         <ProductDelivery deliveryDate={product.deliveryDate} />
 
-        <AddToCartButton 
-          onAddToCart={handleAddToCart} 
+        <AddToCartButton
+          onAddToCart={handleAddToCart}
         />
       </div>
     </div>
