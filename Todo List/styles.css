@@ -1,3 +1,29 @@
+:root {
+    --brand-purple: rgb(173, 48, 173);
+    --brand-purple-hover: rgb(153, 34, 153);
+    --brand-blue: rgb(63, 132, 221);
+    --brand-blue-hover: rgb(41, 101, 158);
+    --brand-sky: rgb(89, 149, 218);
+    --brand-sky-hover: rgb(46, 123, 211);
+    --danger: rgb(236, 76, 76);
+    --danger-hover: rgb(197, 37, 37);
+    --success: #2fc953;
+    --success-hover: #25a142;
+    --muted: #60676d;
+    --muted-hover: #494e52;
+    --primary-bg: #ffffff;
+    --surface: rgb(240, 237, 237);
+    --text: #333;
+    --text-muted: rgba(82, 81, 81, 0.8);
+    --text-muted-2: rgba(82, 81, 81, 0.7);
+    --border: rgba(212, 211, 211, 0.7);
+    --shadow: 0 1px 2px rgba(0,0,0,0.06);
+    --radius-s: 4px;
+    --radius-m: 5px;
+    --radius-l: 10px;
+    --focus-ring: 0 0 0 3px rgba(63, 132, 221, 0.25);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -17,11 +43,11 @@ body {
 .container {
     box-sizing: border-box;
     border: 1px solid white;
-    background-color: white;
+    background-color: var(--primary-bg);
     max-width: 500px;
     width: 100%;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: var(--radius-l);
 }
 
 .title {
@@ -44,7 +70,7 @@ body {
 }
 
 h1 {
-    color: #333;
+    color: var(--text);
 }
 
 .input-area {
@@ -57,18 +83,22 @@ h1 {
     flex-grow: 1;
     box-sizing: border-box;
     padding: 10px;
-    border: 2px solid rgba(212, 211, 211, 0.7);
-    border-radius: 5px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-m);
     font-size: 16px;
+}
+#todoinput:focus{
+    outline: none;
+    box-shadow: var(--focus-ring);
 }
 
 #imgbtn {
     border: none;
     width: 50px;
     height: 50px;
-    background-color: rgb(89, 149, 218);
+    background-color: var(--brand-sky);
     margin-left: 5px;
-    border-radius: 5px;
+    border-radius: var(--radius-m);
     color: white;
     font-size: 15px;
     cursor: pointer;
@@ -78,7 +108,7 @@ h1 {
 }
 
 #imgbtn:hover {
-    background-color: rgb(46, 123, 211);
+    background-color: var(--brand-sky-hover);
 }
 #imginp{
     display: none;
@@ -88,16 +118,16 @@ h1 {
     border: none;
     width: 50px;
     height: 50px;
-    background-color: rgb(173, 48, 173);
+    background-color: var(--brand-purple);
     margin-left: 5px;
-    border-radius: 5px;
+    border-radius: var(--radius-m);
     color: white;
     font-size: 40px;
     cursor: pointer;
 }
 
 #addbtn:hover {
-    background-color: rgb(153, 34, 153);
+    background-color: var(--brand-purple-hover);
 }
 
 #todolist {
@@ -107,7 +137,7 @@ h1 {
     max-height: 400px;
     overflow-y: auto;
     height: 400px;
-    border-bottom: 1px solid rgba(212, 211, 211, 0.7);
+    border-bottom: 1px solid var(--border);
 }
 
 .temporarytext {
@@ -119,12 +149,12 @@ h1 {
 
 .text1 {
     font-size: 20px;
-    color: rgba(82, 81, 81, 0.8);
+    color: var(--text-muted);
 }
 
 .text2 {
     font-size: 15px;
-    color: rgba(82, 81, 81, 0.7);
+    color: var(--text-muted-2);
 }
 
 .tempimg {
@@ -137,7 +167,7 @@ h1 {
     background-color: rgb(240, 237, 237);
     padding: 10px 10px 10px 40px;
     margin: 0 0 10px 0;
-    border-radius: 5px;
+    border-radius: var(--radius-m);
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -188,11 +218,11 @@ h1 {
 }
 
 .dlt-btn {
-    background-color: rgb(236, 76, 76);
+    background-color: var(--danger);
     width: 35px;
     height: 35px;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--radius-m);
     color: white;
     font-size: 20px;
     cursor: pointer;
@@ -204,7 +234,7 @@ h1 {
 }
 
 .dlt-btn:hover {
-    background-color: rgb(197, 37, 37);
+    background-color: var(--danger-hover);
 }
 
 .last {
@@ -218,7 +248,7 @@ h1 {
 #clearbtn {
     padding: 10px;
     font-size: 17px;
-    background-color: rgb(173, 48, 173);
+    background-color: var(--brand-purple);
     color: white;
     border: none;
     cursor: pointer;
@@ -228,7 +258,7 @@ h1 {
 }
 
 #clearbtn:hover {
-    background-color: rgb(153, 34, 153);
+    background-color: var(--brand-purple-hover);
 }
 
 
@@ -237,14 +267,14 @@ h1 {
 }
 
 .edit-btn {
-    background-color: rgb(63, 132, 221);
+    background-color: var(--brand-blue);
     margin-right: 5px;
     width: 35px;
     height: 35px;
     display: none;
     font-size: 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--radius-m);
     color: white;
     cursor: pointer;
     position: absolute;
@@ -254,7 +284,7 @@ h1 {
 }
 
 .edit-btn:hover {
-    background-color: rgb(41, 101, 158);
+    background-color: var(--brand-blue-hover);
 }
 
 .editinput {
@@ -262,7 +292,7 @@ h1 {
     flex-grow: 1;
     padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: var(--radius-s);
     font-size: 17px;
     margin-right: 10px;
     max-width: 325px;
@@ -288,7 +318,7 @@ h1 {
 	object-fit: cover;
 	border-radius: 10px;
 	border: 1px solid rgba(0,0,0,0.08);
-	box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+	box-shadow: var(--shadow);
 	background: #fff;
     position: absolute;
     bottom: 0px;
@@ -335,11 +365,11 @@ h1 {
     font-size: 14px;
     cursor: pointer;
     font-family: sans-serif;
-    background-color: #2fc953;
+    background-color: var(--success);
     color: white;
 }
 .save:hover{
-    background-color: #25a142;
+    background-color: var(--success-hover);
 }
 .cancel {
     display: flex;
@@ -351,11 +381,11 @@ h1 {
     font-size: 14px;
     cursor: pointer;
     font-family: sans-serif;
-    background-color: #60676d;
+    background-color: var(--muted);
     color: white;
 }
 .cancel:hover{
-    background-color: #494e52;
+    background-color: var(--muted-hover);
 }
 .add-image {
     display: flex;

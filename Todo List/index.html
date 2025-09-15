@@ -9,28 +9,27 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="title">
-            <div class="todoicon">
-                <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSTUZ9E8OhFT6f42QfCljL3TcA3Mg-KOcgfM4lbRnf3UiMjeMrc"
-                    alt="" id="todoimg">
+    <main class="container" role="main">
+        <header class="title">
+            <div class="todoicon" aria-hidden="true">
+                <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSTUZ9E8OhFT6f42QfCljL3TcA3Mg-KOcgfM4lbRnf3UiMjeMrc" alt="" id="todoimg">
             </div>
             <h1>Todo List</h1>
-        </div>
-        <div class="input-area">
-            <input type="text" id="todoinput" placeholder="Add your new todo">
-            <label for="imginp" id="imgbtn">IMG</label>
-            <input type="file" accept="image/jpeg, image/png, image/jpg" id="imginp">
-            <button id="addbtn">+</button>
-        </div>
-        <ul id="todolist">
+        </header>
+        <section class="input-area" aria-label="Add todo">
+            <input type="text" id="todoinput" placeholder="Add your new todo" aria-label="Todo text">
+            <label for="imginp" id="imgbtn" role="button" aria-label="Add image">IMG</label>
+            <input type="file" accept="image/jpeg, image/png, image/jpg" id="imginp" aria-label="Select image">
+            <button id="addbtn" aria-label="Add todo">+</button>
+        </section>
+        <ul id="todolist" role="list" aria-live="polite" aria-label="Todo list">
         </ul>
-        <div class="last">
+        <footer class="last">
             <p id="text">You have <span id="taskcount">0</span> pending <span id="veriabletext">tasks</span></p>
-            <button id="clearbtn">Clear All</button>
-        </div>
-    </div>
+            <button id="clearbtn" aria-label="Clear all todos">Clear All</button>
+        </footer>
+    </main>
     <script src="script.js"></script>
-</body>
+    </body>
 
 </html>
