@@ -164,6 +164,7 @@ class TodoApp {
             imageInput.classList.add('image-input');
             const uniqueInputId = `image-input-${++this.uniqueIdCounter}`;
             imageInput.setAttribute('id', uniqueInputId);
+            console.log('Created image input id:', uniqueInputId);
             const imagebtn = document.createElement('label');
             imagebtn.setAttribute('for', uniqueInputId);
             imagebtn.classList.add('add-image');
@@ -215,7 +216,7 @@ class TodoApp {
                     if (!dltimage.dataset.bound) {
                         dltimage.addEventListener('click', function (e) {
                             e.stopPropagation();
-                            media.innerHTML = '';
+                            media.remove();
                             imagebtn.textContent = '🖼 Add Image';
                             imageInput.value = '';
                         });
@@ -233,7 +234,7 @@ class TodoApp {
                     textSpan.textContent = textInput.value.trim();
                     listItem.replaceChild(textSpan, textInput);
                     editBtnActive = false;
-                    imagediv.style.display = 'none';
+                    imagediv.remove();
                     editBtn.style.display = '';
                 }
             });
@@ -248,16 +249,23 @@ class TodoApp {
                     return;
                 }
 
+                if (!hasImage) {
+                    const media = listItem.querySelector('.todo-media');
+                    if (media) {
+                        media.remove();
+                    }
+                }
+
                 textSpan.textContent = newText;
                 listItem.replaceChild(textSpan, textInput);
                 editBtnActive = false;
-                imagediv.style.display = 'none';
+                imagediv.remove();
                 editBtn.style.display = '';
             });
             cancelbutton.addEventListener('click', function () {
                 listItem.replaceChild(textSpan, textInput);
                 editBtnActive = false;
-                imagediv.style.display = 'none';
+                imagediv.remove();
                 editBtn.style.display = '';
             });
         });
