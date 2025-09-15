@@ -115,6 +115,7 @@ class TodoApp {
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'x';
         deleteButton.classList.add('dlt-btn');
+        deleteButton.type = 'button';
         deleteButton.addEventListener('click', (event) => {
             event.stopPropagation();
             this.todoList.removeChild(listItem);
@@ -125,6 +126,7 @@ class TodoApp {
         const editBtn = document.createElement('button');
         editBtn.textContent = '✎';
         editBtn.classList.add('edit-btn');
+        editBtn.type = 'button';
 
         editBtn.addEventListener('click', (event) => {
             textSpan.style.display = '';
@@ -147,9 +149,11 @@ class TodoApp {
             const savebutton = document.createElement('button');
             savebutton.classList.add('save');
             savebutton.textContent = '💾 Save';
+            savebutton.type = 'button';
             const cancelbutton = document.createElement('button');
             cancelbutton.classList.add('cancel');
             cancelbutton.textContent = '✖ Cancel';
+            cancelbutton.type = 'button';
             buttonRow.append(savebutton, cancelbutton);
 
             const imageRow = document.createElement('div');
@@ -205,14 +209,18 @@ class TodoApp {
                         dltimage = document.createElement('button');
                         dltimage.classList.add('dlt-image');
                         dltimage.textContent = 'x';
+                        dltimage.type = 'button';
                         media.appendChild(dltimage);
                     }
-                    dltimage.addEventListener('click', function (e) {
-                        e.stopPropagation();
-                        media.innerHTML = '';
-                        imagebtn.textContent = '🖼 Add Image';
-                        imageInput.value = '';
-                    });
+                    if (!dltimage.dataset.bound) {
+                        dltimage.addEventListener('click', function (e) {
+                            e.stopPropagation();
+                            media.innerHTML = '';
+                            imagebtn.textContent = '🖼 Add Image';
+                            imageInput.value = '';
+                        });
+                        dltimage.dataset.bound = 'true';
+                    }
                     imagebtn.textContent = 'Change Image';
                 };
                 reader.readAsDataURL(file);
@@ -290,7 +298,6 @@ class TodoApp {
                 }
             });
             media.appendChild(dltimage);
-            listItem.appendChild(media);
         }
 
         this.todoList.appendChild(listItem);

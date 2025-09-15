@@ -201,7 +201,9 @@ h1 {
 }
 
 #todolist li:hover .edit-btn,
-#todolist li:hover .dlt-btn {
+#todolist li:hover .dlt-btn,
+#todolist li .edit-btn:focus,
+#todolist li .dlt-btn:focus {
     display: block;
 }
 
