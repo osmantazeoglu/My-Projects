@@ -10,6 +10,7 @@ class TodoApp {
         this.fileInput = document.getElementById('imginp');
         this.selectedImage = null;
         this.temptext = document.querySelector('.temporarytext');
+        this.uniqueIdCounter = 0;
 
         this.initializeEmptyState();
         this.bindGlobalEvents();
@@ -157,9 +158,10 @@ class TodoApp {
             imageInput.type = 'file';
             imageInput.accept = 'image/jpeg, image/png, image/jpg';
             imageInput.classList.add('image-input');
-            imageInput.setAttribute('id', 'image-input');
+            const uniqueInputId = `image-input-${++this.uniqueIdCounter}`;
+            imageInput.setAttribute('id', uniqueInputId);
             const imagebtn = document.createElement('label');
-            imagebtn.setAttribute('for', 'image-input');
+            imagebtn.setAttribute('for', uniqueInputId);
             imagebtn.classList.add('add-image');
 
             imageRow.append(imagebtn, imageInput);
@@ -198,7 +200,7 @@ class TodoApp {
                         media.appendChild(img);
                     }
                     img.src = dataURL;
-                    let dltimage = media.querySelector('dlt-image');
+                    let dltimage = media.querySelector('.dlt-image');
                     if (!dltimage) {
                         dltimage = document.createElement('button');
                         dltimage.classList.add('dlt-image');
