@@ -228,8 +228,17 @@ class TodoApp {
                 }
             });
 
-            savebutton.addEventListener('click', function () {
-                textSpan.textContent = textInput.value.trim();
+            savebutton.addEventListener('click', () => {
+                const newText = textInput.value.trim();
+                const hasImage = !!listItem.querySelector('.todo-media img');
+
+                if (newText === '' && !hasImage) {
+                    this.todoList.removeChild(listItem);
+                    this.updateTaskCount();
+                    return;
+                }
+
+                textSpan.textContent = newText;
                 listItem.replaceChild(textSpan, textInput);
                 editBtnActive = false;
                 imagediv.style.display = 'none';
