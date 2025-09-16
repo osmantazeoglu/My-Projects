@@ -5,28 +5,43 @@
     box-sizing: border-box;
 }
 
+:root{
+    --bg: #e3e3e3;
+    --panel: #3a4452;
+    --text: #ffffff;
+    --btn-bg: #eef1f5;
+    --btn-text: #222222;
+    --op-bg: #556074;
+    --accent: #ff9500;
+    --radius: 10px;
+    --space: 10px;
+}
+
 .container{
     width: 100%;
-    height: 100vh;
-    background-color: #e3e3e3;
+    min-height: 100svh;
+    background-color: var(--bg);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .calculator{
-    background-color: #3a4452;
+    background-color: var(--panel);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: var(--radius);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
 .calculator form input{
     border: 0;
     outline: 0;
-    width: 60px;
-    height: 60px;
-    margin: 10px;
-    border-radius: 10px;
+    width: clamp(52px, 12vw, 60px);
+    height: clamp(52px, 12vw, 60px);
+    margin: var(--space);
+    border-radius: var(--radius);
     font-size: 20px;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 form .display{
     display: flex;
@@ -38,35 +53,46 @@ form .display input{
     flex: 1;
     font-size: 45px;
     background: transparent;
-    color: #ffffff;
+    color: var(--text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    caret-color: transparent;
 }
 .eql.btn{
-    width: 145px;
+    width: calc(clamp(52px, 12vw, 60px) * 2 + var(--space));
 }
 /* Button visual states and emphasis */
 .btn{
-    background-color: #eef1f5;
-    color: #222222;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
     transition: background-color 120ms ease, transform 80ms ease, filter 120ms ease;
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
 }
 .btn.operator{
-    background-color: #556074;
-    color: #ffffff;
+    background-color: var(--op-bg);
+    color: var(--text);
 }
 .eql.btn{
-    background-color: #ff9500;
-    color: #ffffff;
+    background-color: var(--accent);
+    color: var(--text);
 }
 .btn:hover{
     filter: brightness(0.95);
 }
 .btn:active{
     transform: scale(0.98);
+    box-shadow: 0 0 0 rgba(0,0,0,0.0);
 }
 .btn:focus-visible{
     outline: 2px solid #90cdf4;
     outline-offset: 2px;
+    box-shadow: 0 0 0 2px rgba(144,205,244,0.3);
+}
+
+@media (prefers-reduced-motion: reduce){
+    *{ transition: none !important; }
 }

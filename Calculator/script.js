@@ -46,20 +46,28 @@ buttons.forEach((button) => {
 
     if (value === "AC") {
       display.value = "";
-    } else if (value === "C") {
+    } 
+    
+    else if (value === "C") {
       display.value = display.value.slice(0, -1);
-    } else if (value === "=") {
+    } 
+    
+    else if (value === "=") {
       try {
         display.value = eval(display.value);
       } catch {
         display.value = "Error";
       }
-    } else if (operators.includes(value)) {
+    } 
+    
+    else if (operators.includes(value)) {
       const lastChar = display.value.slice(-1);
       if (!operators.includes(lastChar) && display.value !== "") {
         display.value += value;
       }
-    } else {
+    } 
+    
+    else {
       display.value += value;
     }
   });
