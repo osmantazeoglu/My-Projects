@@ -43,3 +43,30 @@ form .display input{
 .eql.btn{
     width: 145px;
 }
+/* Button visual states and emphasis */
+.btn{
+    background-color: #eef1f5;
+    color: #222222;
+    transition: background-color 120ms ease, transform 80ms ease, filter 120ms ease;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.btn.operator{
+    background-color: #556074;
+    color: #ffffff;
+}
+.eql.btn{
+    background-color: #ff9500;
+    color: #ffffff;
+}
+.btn:hover{
+    filter: brightness(0.95);
+}
+.btn:active{
+    transform: scale(0.98);
+}
+.btn:focus-visible{
+    outline: 2px solid #90cdf4;
+    outline-offset: 2px;
+}
