@@ -3,6 +3,10 @@ const buttons = document.querySelectorAll(".btn");
 
 const operators = ["+", "-", "*", "/", "."];
 
+document.addEventListener('DOMContentLoaded', () =>{
+    console.log("Pressed Key", event.key);
+});
+
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     const value = button.value;
