@@ -54,10 +54,10 @@ form .display input{
     font-size: 45px;
     background: transparent;
     color: var(--text);
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow-x: auto;
+    overflow-y: hidden;
     white-space: nowrap;
-    caret-color: transparent;
+    caret-color: auto;
 }
 .eql.btn{
     width: calc(clamp(52px, 12vw, 60px) * 2 + var(--space));

@@ -25,6 +25,10 @@ const keyMap = {
 };
 
 document.addEventListener("keydown", (event) => {
+  // Allow native typing/editing when the input is focused
+  if (document.activeElement === display) {
+    return;
+  }
   const key = event.key;
   const mappedKey = keyMap[key] ?? key;
 
@@ -49,7 +53,20 @@ buttons.forEach((button) => {
     } 
     
     else if (value === "C") {
-      display.value = display.value.slice(0, -1);
+      const start = display.selectionStart;
+      const end = display.selectionEnd;
+      if (typeof start === 'number' && typeof end === 'number'){
+        const v = display.value;
+        if (start !== end){
+          display.value = v.slice(0, start) + v.slice(end);
+          display.setSelectionRange(start, start);
+        } else if (start > 0){
+          display.value = v.slice(0, start - 1) + v.slice(start);
+          display.setSelectionRange(start - 1, start - 1);
+        }
+      } else {
+        display.value = display.value.slice(0, -1);
+      }
     } 
     
     else if (value === "=") {
@@ -69,6 +86,10 @@ buttons.forEach((button) => {
     
     else {
       display.value += value;
+    }
+    // Keep end visible only when not actively editing mid-string
+    if (document.activeElement !== display) {
+      display.scrollLeft = display.scrollWidth;
     }
   });
 });
