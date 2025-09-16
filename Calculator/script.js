@@ -3,8 +3,41 @@ const buttons = document.querySelectorAll(".btn");
 
 const operators = ["+", "-", "*", "/", "."];
 
-document.addEventListener('DOMContentLoaded', () =>{
-    console.log("Pressed Key", event.key);
+const keyMap = {
+  0: "0",
+  1: "1",
+  2: "2",
+  3: "3",
+  4: "4",
+  5: "5",
+  6: "6",
+  7: "7",
+  8: "8",
+  9: "9",
+  "+": "+",
+  "-": "-",
+  "*": "*",
+  "/": "/",
+  ".": ".",
+  Enter: "=",
+  Delete: "AC",
+  Backspace: "C",
+};
+
+document.addEventListener("keydown", (event) => {
+  const key = event.key;
+  const mappedKey = keyMap[key] ?? key;
+
+  console.log("Pressed key:", mappedKey);
+
+  const Presbtn = Array.from(buttons).find(
+    (button) => button.value === mappedKey
+  );
+
+  if (Presbtn) {
+    Presbtn.click();
+    event.preventDefault();
+  }
 });
 
 buttons.forEach((button) => {
