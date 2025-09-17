@@ -80,7 +80,6 @@ function App() {
     fetch("http://localhost:3001/api/products")
       .then((res) => res.json())
       .then((data) => {
-        console.log("api den gelen veri:", data);
         setProducts(data);
       })
       .catch((err) => console.log("hata", err));

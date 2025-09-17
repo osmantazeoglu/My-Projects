@@ -5,10 +5,9 @@ const Cart = ({ setCartCount }) => {
         fetch("http://localhost:3001/api/basket")
             .then(res => res.json())
             .then(data => {
-                console.log("Sepet API cevabı:", data);
                 setCartCount(data.length);
             })
-            .catch(err => console.error("Sepeti alma hatası:", err));
+            .catch(err => console.error("Sepeti alma hatasi:", err));
     }, [setCartCount]);
 
 };
