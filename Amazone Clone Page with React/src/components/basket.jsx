@@ -11,11 +11,6 @@ const Cart = ({ setCartCount }) => {
             .catch(err => console.error("Sepeti alma hatası:", err));
     }, [setCartCount]);
 
-    return (
-        <div>
-            <h2>Cart Page</h2>
-        </div>
-    );
 };
 
 export default Cart;
