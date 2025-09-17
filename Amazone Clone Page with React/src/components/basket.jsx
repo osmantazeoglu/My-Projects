@@ -9,7 +9,7 @@ const Cart = ({ setCartCount }) => {
                 setCartCount(data.length);
             })
             .catch(err => console.error("Sepeti alma hatası:", err));
-    }, []);
+    }, [setCartCount]);
 
     return (
         <div>
