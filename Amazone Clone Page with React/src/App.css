@@ -1,6 +1,7 @@
 .navbar-main {
     margin: 0;
     width: 100%;
+    min-width: 1185px; /* prevent navbar from shrinking below its content so background/color persists when horizontally scrolling */
     height: 60px;
     background-color: rgb(21, 30, 37);
     display: flex;
