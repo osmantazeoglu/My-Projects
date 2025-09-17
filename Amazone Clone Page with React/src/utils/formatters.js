@@ -1,4 +1,12 @@
 export const formatPrice = (price) => {
+  // Handle undefined, null, or invalid price values
+  if (price === undefined || price === null || isNaN(price)) {
+    return {
+      whole: '0',
+      decimal: '00'
+    };
+  }
+  
   const [whole, decimal] = price.toString().split('.');
   return {
     whole,
