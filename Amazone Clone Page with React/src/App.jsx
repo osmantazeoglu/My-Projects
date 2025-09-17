@@ -70,6 +70,11 @@ function NavbarRight({ cartCount, handleDisplayCart }) {
 function App() {
   const [products, setProducts] = useState([]);
   const [cartCount, setCartCount] = useState(0);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const handleDisplayCart = () => {
+    setIsCartOpen ((prev) => !prev);
+  };
 
   useEffect(() => {
     fetch("http://localhost:3001/api/products")
@@ -86,20 +91,24 @@ function App() {
       <div className="navbar-main">
         <NavbarLeft />
         <NavbarCenter />
-        <NavbarRight cartCount={cartCount} />
+        <NavbarRight cartCount={cartCount} handleDisplayCart={handleDisplayCart} />
       </div>
-      <div className="product-main">
-        {products.length > 0 ? (
-          products.map((p) => (
-            <ProductCard key={p.id} product={p} setCartCount={setCartCount} />
-          ))
-        ) : (
-          <div className="loading">Yükleniyor...</div>
-        )}
-      </div>
-      <div>
-        <Cart setCartCount={setCartCount} />
-      </div>
+
+      {isCartOpen ? (
+        <div>
+          <Cart setCartCount={setCartCount} />
+        </div>
+      ) : (
+        <div className="product-main">
+          {products.length > 0 ? (
+            products.map((p) => (
+              <ProductCard key={p.id} product={p} setCartCount={setCartCount} />
+            ))
+          ) : (
+            <div className="loading">Yükleniyor...</div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
