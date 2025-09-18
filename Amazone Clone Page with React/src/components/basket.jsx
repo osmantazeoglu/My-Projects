@@ -46,7 +46,7 @@ const Cart = ({ setCartCount }) => {
   }
   return (
     <div className="product-main">
-      <ClearToCartButton onClearToCart={handleClearCart} />;
+      <ClearToCartButton onClearToCart={handleClearCart} />
       {basketItems.map((item, index) => (
         <ProductCard
           key={item.id || `item-${index}`}
