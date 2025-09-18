@@ -1,4 +1,9 @@
+.Cart-Page{
+    max-width: 100%;
+    padding: 0 20px;
+}
 .Carttext-Part{
+    box-sizing: border-box;
     background-color: rgba(189, 188, 188, 0.733);
     border: 1px solid black;
     padding: 25px 20px 20px 20px;

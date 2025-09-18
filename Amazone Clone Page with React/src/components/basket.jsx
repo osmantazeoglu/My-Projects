@@ -29,6 +29,7 @@ const Cart = ({ setCartCount }) => {
 
   if (!basketItems || basketItems.length === 0) {
     return (
+      <div className="Cart-Page">
         <div className="Carttext-Part">
           <h2>Amazon sepetiniz bos</h2>
           <p>
@@ -42,6 +43,7 @@ const Cart = ({ setCartCount }) => {
             listelerinize göz atın.
           </p>
         </div>
+      </div>
     );
   }
   return (
