@@ -31,7 +31,7 @@ const Cart = ({ setCartCount }) => {
     return (
       <div className="product-main">
         <div className="Carttext-Part">
-          <h2>Amazon Sepetiniz Bos</h2>
+          <h2>Amazon sepetiniz bos</h2>
         </div>
       </div>
     );
