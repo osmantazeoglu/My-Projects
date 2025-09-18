@@ -43,12 +43,12 @@ const Cart = ({ setCartCount }) => {
             listelerinize göz atın.
           </p>
         </div>
+        <div className="total-part"></div>
       </div>
     );
   }
   return (
-    <div className="product-main">
-      <ClearToCartButton onClearToCart={handleClearCart} />
+    <div className="Cart-Page">
       {basketItems.map((item, index) => (
         <ProductCard
           key={item.id || `item-${index}`}
@@ -56,6 +56,9 @@ const Cart = ({ setCartCount }) => {
           setCartCount={setCartCount}
         />
       ))}
+      <div className="total-part">
+        <ClearToCartButton onClearToCart={handleClearCart} />
+      </div>
     </div>
   );
 };

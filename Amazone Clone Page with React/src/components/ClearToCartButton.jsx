@@ -4,7 +4,7 @@ const ClearToCartButton = ({ onClearToCart }) => {
   };
 
   return (
-    <button id="clearCart" onClick={handleClearCart}>Clear</button>
+    <button id="clearCart" onClick={handleClearCart}>Clear Cart</button>
   );
 };
 
