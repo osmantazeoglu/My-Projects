@@ -50,10 +50,10 @@ const Cart = ({ setCartCount }) => {
   return (
     <div className="Cart-Page">
       <div className="cart-items">
-        {basketItems.map((item) => (
+        {basketItems.map((p) => (
           <ProductCard
-            key={item.id}
-            product={item}
+            key={p.id}
+            product={p}
             setCartCount={setCartCount}
           />
         ))}

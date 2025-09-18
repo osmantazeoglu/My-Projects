@@ -1,23 +1,22 @@
-import ProductImage from './ProductImage';
-import ProductRating from './ProductRating';
-import ProductPrice from './ProductPrice';
-import ProductDiscount from './ProductDiscount';
-import ProductDelivery from './ProductDelivery';
-import AddToCartButton from './AddToCartButton';
+import ProductImage from "./ProductImage";
+import ProductRating from "./ProductRating";
+import ProductPrice from "./ProductPrice";
+import ProductDiscount from "./ProductDiscount";
+import ProductDelivery from "./ProductDelivery";
+import AddToCartButton from "./AddToCartButton";
 
 const ProductCard = ({ product, setCartCount }) => {
   const handleAddToCart = () => {
     fetch(`http://localhost:3001/api/add-to-basket/${product.id}`, {
       method: "POST",
-      headers: {"Content-Type":"application/json"},
-      body: JSON.stringify({ quantity: 1 })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ quantity: 1 }),
     })
-      .then(res => res.json())
-      .then(data => {
-        console.log("Sepete ekleme Api cevabi:", data);
+      .then((res) => res.json())
+      .then((data) => {
         setCartCount?.(data.length);
       })
-      .catch(err => console.log("Sepete ekleme hatasi:", err));
+      .catch((err) => console.log("Sepete ekleme hatasi:", err));
   };
 
   return (
@@ -39,9 +38,7 @@ const ProductCard = ({ product, setCartCount }) => {
 
         <ProductDelivery deliveryDate={product.deliveryDate} />
 
-        <AddToCartButton
-          onAddToCart={handleAddToCart}
-        />
+        <AddToCartButton onAddToCart={handleAddToCart} />
       </div>
     </div>
   );
