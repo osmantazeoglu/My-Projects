@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import "./ProductCard.css";
-import "./CartPage.css";
 import { FaMapMarkerAlt, FaSearch, FaCaretDown } from "react-icons/fa";
 import { BsCart3 } from "react-icons/bs";
 import ProductCard from "./components/ProductCard";

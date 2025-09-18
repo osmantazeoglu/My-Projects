@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import ClearToCartButton from "./ClearToCartButton";
+import "../CartPage.css";
 
 const Cart = ({ setCartCount }) => {
   const [basketItems, setBasketItems] = useState([]);
