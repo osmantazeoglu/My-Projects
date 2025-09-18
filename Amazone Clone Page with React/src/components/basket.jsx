@@ -33,14 +33,14 @@ const Cart = ({ setCartCount }) => {
         <div className="Carttext-Part">
           <h2>Amazon sepetiniz bos</h2>
           <p>
-            Alışveriş Sepetiniz size hizmet etmek için var. Market ürünleri,
-            giyim, ev malzemeleri, elektronik ürünler ve daha fazlası ile
+            Alişveriş Sepetiniz size hizmet etmek için var. Market ürünleri,
+            giyim, ev malzemeleri, elektronik ürünler ve daha fazlasi ile
             doldurarak ona bir amaç verin.
           </p>
           <p>
-            Amazon.com.tr sayfasında alışverişe devam edin, günün fırsatları
-            hakkında bilgi alın veya İstek Listesi bağlantısını kullanarak
-            listelerinize göz atın.
+            Amazon.com.tr sayfasinda alişverişe devam edin, günün firsatlari
+            hakkinda bilgi alin veya İstek Listesi bağlantisini kullanarak
+            listelerinize göz atin.
           </p>
         </div>
         <div className="total-part"></div>
@@ -49,13 +49,15 @@ const Cart = ({ setCartCount }) => {
   }
   return (
     <div className="Cart-Page">
-      {basketItems.map((item, index) => (
-        <ProductCard
-          key={item.id || `item-${index}`}
-          product={item}
-          setCartCount={setCartCount}
-        />
-      ))}
+      <div className="cart-items">
+        {basketItems.map((item) => (
+          <ProductCard
+            key={item.id}
+            product={item}
+            setCartCount={setCartCount}
+          />
+        ))}
+      </div>
       <div className="total-part">
         <ClearToCartButton onClearToCart={handleClearCart} />
       </div>
