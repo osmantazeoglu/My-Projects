@@ -15,7 +15,7 @@ const Cart = ({ setCartCount }) => {
       })
       .catch((err) => console.log("Clear cart error", err));
   };
-  <ClearToCartButton onClearToCart={{ handleClearCart }} />;
+  
   useEffect(() => {
     fetch("http://localhost:3001/api/basket")
       .then((res) => res.json())
@@ -37,7 +37,7 @@ const Cart = ({ setCartCount }) => {
   }
   return (
     <div className="product-main">
-      <ClearToCartButton onClearToCart={ handleClearCart }/>;
+      <ClearToCartButton onClearToCart={handleClearCart}/>;
       {basketItems.map((item, index) => (
         <ProductCard
           key={item.id || `item-${index}`}
