@@ -12,12 +12,18 @@
 }
 .cart-header {
   background-color: white;
-  padding-bottom: 20px;
+  position: relative;
 }
+.cart-header h2{
+    margin-bottom: 40px;
+  }
 .cart-header p {
   font-size: 16px;
   font-weight: 600;
   color: #565959;
+  position: absolute;
+  top: 50px;
+  right: 0;
 }
 .Carttext-Part {
   box-sizing: border-box;
