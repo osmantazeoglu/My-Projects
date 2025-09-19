@@ -1,21 +1,21 @@
 .cart-items{
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 12px;
+    border-top: 1px solid #e1e3e6;
+    border-bottom: 1px solid #e1e3e6;
 }
 
 .cart-card{
     gap: 20px;
     background: #fff;
-    border: 1px solid #e1e3e6;
     border-radius: 10px;
     padding: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
 }
 .cart-card-top{
     display: flex;
     gap: 12px;
+    padding: 12px 12px 20px 12px;
     border-bottom: 1px solid #e1e3e6;
-    padding-bottom: 12px;
 }
 .cart-card-image{
     width: 110px;
@@ -85,8 +85,9 @@
 }
 
 .cart-qty-label{
-    font-size: 12px;
-    color: #565959;
+    font-size: 14px;
+    color: #0f1111;
+    font-weight: 600;
 }
 
 .cart-qty-value{
@@ -97,6 +98,7 @@
 .cart-card-bottom{
     display: flex;
     justify-content: flex-end;
+    padding-top: 12px;
 }
 
 .cart-card-subtotal{
@@ -107,8 +109,9 @@
 }
 
 .cart-subtotal-label{
-    font-size: 12px;
-    color: #565959;
+    font-size: 16px;
+    color: #0f1111;
+    font-weight: 600;
 }
 
 .cart-subtotal-value{

@@ -28,18 +28,10 @@ const CartProductCard = ({ item }) => {
             </div>
 
             <div className="cart-card-qty">
-              <span className="cart-qty-label">Adet:</span>
+              <span className="cart-qty-label">Quity:</span>
               <span className="cart-qty-value">{item.quantity}</span>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="cart-card-bottom">
-        <div className="cart-card-subtotal">
-          <span className="cart-subtotal-label">Ara toplam:</span>
-          <span className="cart-subtotal-value">
-            ₺{Number(item.subtotal || 0).toFixed(2)}
-          </span>
         </div>
       </div>
     </div>
