@@ -4,15 +4,19 @@
 }
 
 .cart-card{
-    display: flex;
-    gap: 12px;
+    gap: 20px;
     background: #fff;
     border: 1px solid #e1e3e6;
     border-radius: 10px;
     padding: 12px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.06);
 }
-
+.cart-card-top{
+    display: flex;
+    gap: 12px;
+    border-bottom: 1px solid #e1e3e6;
+    padding-bottom: 12px;
+}
 .cart-card-image{
     width: 110px;
     min-width: 110px;
@@ -34,7 +38,6 @@
 .cart-card-info{
     display: flex;
     flex-direction: column;
-    gap: 6px;
     flex: 1;
 }
 
@@ -62,7 +65,6 @@
 .cart-card-price{
     display: flex;
     align-items: baseline;
-    gap: 4px;
     font-weight: 700;
     color: #0f1111;
 }
@@ -90,6 +92,11 @@
 .cart-qty-value{
     font-size: 14px;
     font-weight: 600;
+}
+
+.cart-card-bottom{
+    display: flex;
+    justify-content: flex-end;
 }
 
 .cart-card-subtotal{
