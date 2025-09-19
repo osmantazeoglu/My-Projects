@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ProductCard from "./ProductCard";
+import CartProductCard from "./CartProductCard";
 import ClearToCartButton from "./ClearToCartButton";
 import "../CartPage.css";
 
@@ -50,12 +50,8 @@ const Cart = ({ setCartCount }) => {
   return (
     <div className="Cart-Page">
       <div className="cart-items">
-        {basketItems.map((p) => (
-          <ProductCard
-            key={p.id}
-            product={p}
-            setCartCount={setCartCount}
-          />
+        {basketItems.map((item) => (
+          <CartProductCard key={item.productId} item={item} />
         ))}
       </div>
       <div className="total-part">
