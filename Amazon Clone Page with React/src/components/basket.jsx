@@ -5,6 +5,11 @@ import "../styles/pages/CartPage.css";
 
 const Cart = ({ setCartCount }) => {
   const [basketItems, setBasketItems] = useState([]);
+  const subtotal = basketItems.reduce(
+    (sum, item) => sum + (item?.product?.price || 0)*(item?.quantity || 0),
+    0
+  );
+
   const handleClearCart = () => {
     fetch("http://localhost:3001/api/basket/clear", {
       method: "POST",
@@ -77,7 +82,7 @@ const Cart = ({ setCartCount }) => {
         <div className="cart-card-subtotal">
           <span className="cart-subtotal-label">Subtotal:</span>
           <span className="cart-subtotal-value">
-            ₺{Number(basketItems.subtotal || 0).toFixed(2)}
+            ₺{subtotal.toFixed(2)}
           </span>
         </div>
       </div>
