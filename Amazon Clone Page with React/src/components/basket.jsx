@@ -22,7 +22,7 @@ const Cart = ({ setCartCount }) => {
       .catch((err) => console.log("Clear cart error", err));
   };
 
-  const handleRemoveItem = (productId) => {
+  const handleRemoveCard = (productId) => {
     fetch(`http://localhost:3001/api/remove-from-basket/${productId}`, {
       method: "DELETE",
     })
@@ -73,7 +73,7 @@ const Cart = ({ setCartCount }) => {
         </div>
         <div className="cart-items">
           {basketItems.map((item) => (
-            <CartProductCard key={item.productId} item={item} onRemove={handleRemoveItem} />
+            <CartProductCard key={item.productId} item={item} onRemove={handleRemoveCard} />
           ))}
         </div>
       </div>

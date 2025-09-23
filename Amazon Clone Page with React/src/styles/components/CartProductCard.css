@@ -106,6 +106,9 @@
   left: 6px;
   height: 5px;
 }
+.item-reduce-btn:hover{
+    cursor: pointer;
+}
 .cart-qty-value {
   font-size: 14px;
   font-weight: 700;
@@ -123,6 +126,10 @@
   top: 12px;
   right: 6px;
   height: 5px;
+}
+
+.item-increase-btn:hover{
+    cursor: pointer;
 }
 
 .cart-card-bottom {

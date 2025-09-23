@@ -6,7 +6,7 @@ const RemoveFromCardButton = ({ onRemovefromCard }) => {
   };
 
   return (
-    <button id="RemoveCard" onClick={handleRemoveCard}>Del</button>
+    <button className="item-reduce-btn" onClick={handleRemoveCard}>-</button>
   );
 };
 export default RemoveFromCardButton;

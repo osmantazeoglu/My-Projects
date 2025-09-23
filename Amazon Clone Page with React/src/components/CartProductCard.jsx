@@ -1,9 +1,12 @@
 import "../styles/components/CartProductCard.css";
 import RemoveFromCardButton from "./RemoveCartButton";
 
-const CartProductCard = ({ item, onRemove }) => {
+const CartProductCard = ({ item, onRemove, onAddToCart }) => {
+  const handleAddToCart = () => {
+    onAddToCart?.(item.productId);
+  };
 
-  const handleRemoveCard = () =>{
+  const handleRemoveCard = () => {
     onRemove?.(item.productId);
   };
   const product = item?.product || {};
@@ -33,14 +36,14 @@ const CartProductCard = ({ item, onRemove }) => {
             </div>
 
             <div className="cart-card-qty">
-              <button className="item-reduce-btn">-</button>
+              <RemoveFromCardButton onRemovefromCard={handleRemoveCard} />
               <span className="cart-qty-value">{item.quantity}</span>
-              <button className="item-increase-btn">+</button>
+              <button className="item-increase-btn" onClick={handleAddToCart}>
+                +
+              </button>
             </div>
 
-            <div className="Remove-card">
-                <RemoveFromCardButton onRemovefromCard={handleRemoveCard}/>
-            </div>
+            <div className="Remove-card"></div>
           </div>
         </div>
       </div>
