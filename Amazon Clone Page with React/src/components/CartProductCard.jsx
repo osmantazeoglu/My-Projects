@@ -33,8 +33,9 @@ const CartProductCard = ({ item, onRemove }) => {
             </div>
 
             <div className="cart-card-qty">
-              <span className="cart-qty-label">Quity:</span>
+              <button className="item-reduce-btn">-</button>
               <span className="cart-qty-value">{item.quantity}</span>
+              <button className="item-increase-btn">+</button>
             </div>
 
             <div className="Remove-card">
