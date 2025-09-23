@@ -6,7 +6,7 @@ import "../styles/pages/CartPage.css";
 const Cart = ({ setCartCount }) => {
   const [basketItems, setBasketItems] = useState([]);
   const subtotal = basketItems.reduce(
-    (sum, item) => sum + (item?.product?.price || 0)*(item?.quantity || 0),
+    (sum, item) => sum + (item?.product?.price || 0) * (item?.quantity || 0),
     0
   );
 
@@ -32,6 +32,20 @@ const Cart = ({ setCartCount }) => {
         setCartCount(data.length);
       })
       .catch((err) => console.log("Remove item error", err));
+  };
+
+  const handleAddToCart = (productId) => {
+    fetch(`http://localhost:3001/api/add-to-basket/${productId}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ quantity: 1 }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setBasketItems(data);
+        setCartCount?.(data.length);
+      })
+      .catch((err) => console.log("Sepete ekleme hatasi:", err));
   };
 
   useEffect(() => {
@@ -73,7 +87,12 @@ const Cart = ({ setCartCount }) => {
         </div>
         <div className="cart-items">
           {basketItems.map((item) => (
-            <CartProductCard key={item.productId} item={item} onRemove={handleRemoveCard} />
+            <CartProductCard
+              key={item.productId}
+              item={item}
+              onRemove={handleRemoveCard}
+              onAddToCart={handleAddToCart}
+            />
           ))}
         </div>
       </div>
@@ -81,9 +100,7 @@ const Cart = ({ setCartCount }) => {
         <ClearToCartButton onClearToCart={handleClearCart} />
         <div className="cart-card-subtotal">
           <span className="cart-subtotal-label">Subtotal:</span>
-          <span className="cart-subtotal-value">
-            ₺{subtotal.toFixed(2)}
-          </span>
+          <span className="cart-subtotal-value">₺{subtotal.toFixed(2)}</span>
         </div>
       </div>
     </div>
