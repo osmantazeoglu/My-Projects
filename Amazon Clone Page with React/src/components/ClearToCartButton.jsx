@@ -1,4 +1,4 @@
-import "../styles/pages/CartPage.css";
+import "../styles/components/ClearToCartButton.css";
 
 const ClearToCartButton = ({ onClearToCart }) => {
   const handleClearCart = () => {

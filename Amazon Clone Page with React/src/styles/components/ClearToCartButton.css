@@ -1,0 +1,15 @@
+#clearCart {
+  background-color: #52514f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 15px;
+  font-size: 16px;
+}
+
+#clearCart:hover {
+  background-color: #413f3d;
+}
+
+
