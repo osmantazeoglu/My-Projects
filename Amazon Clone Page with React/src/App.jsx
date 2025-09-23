@@ -85,6 +85,16 @@ function App() {
       .catch((err) => console.log("hata", err));
   }, []);
 
+  // Initialize cart count on first load/refresh
+  useEffect(() => {
+    fetch("http://localhost:3001/api/basket")
+      .then((res) => res.json())
+      .then((data) => {
+        setCartCount(data.length);
+      })
+      .catch((err) => console.error("Sepet sayisi alinirken hata:", err));
+  }, []);
+
   return (
     <div>
       <div className="navbar-main">
