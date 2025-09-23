@@ -1,4 +1,4 @@
-import "../CartProductCard.css";
+import "../styles/components/CartProductCard.css";
 import RemoveFromCardButton from "./RemoveCartButton";
 
 const CartProductCard = ({ item }) => {
