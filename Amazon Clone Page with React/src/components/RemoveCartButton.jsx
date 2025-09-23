@@ -1,4 +1,3 @@
-import "../styles/components/RemoveCartButton.css";
 
 const RemoveFromCardButton = ({ onRemovefromCard }) => {
   const handleRemoveCard = () => {
