@@ -1,5 +1,6 @@
 import "../styles/components/CartProductCard.css";
 import RemoveFromCardButton from "./ReduceCardButton";
+import IncreaseCardButton from "./IncreaseCardButton";
 
 const CartProductCard = ({ item, onRemove, onAddToCart }) => {
   const handleAddToCart = () => {
@@ -38,9 +39,7 @@ const CartProductCard = ({ item, onRemove, onAddToCart }) => {
             <div className="cart-card-qty">
               <RemoveFromCardButton onRemovefromCard={handleRemoveCard} />
               <span className="cart-qty-value">{item.quantity}</span>
-              <button className="item-increase-btn" onClick={handleAddToCart}>
-                +
-              </button>
+              <IncreaseCardButton onAddToCart={handleAddToCart} />
             </div>
 
             <div className="Remove-card"></div>
