@@ -73,7 +73,7 @@ function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const handleDisplayCart = () => {
-    setIsCartOpen ((prev) => !prev);
+    setIsCartOpen((prev) => !prev);
   };
 
   useEffect(() => {

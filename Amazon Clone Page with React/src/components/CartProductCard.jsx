@@ -41,8 +41,6 @@ const CartProductCard = ({ item, onRemove, onAddToCart }) => {
               <span className="cart-qty-value">{item.quantity}</span>
               <IncreaseCardButton onAddToCart={handleAddToCart} />
             </div>
-
-            <div className="Remove-card"></div>
           </div>
         </div>
       </div>
