@@ -16,7 +16,7 @@ const CartProductCard = ({ item }) => {
         <div className="cart-card-info">
           <h3 className="cart-card-title">{product.title}</h3>
           {product.author && (
-            <p className="cart-card-author">{product.author}</p>
+            <p className="cart-card-author">by {product.author}</p>
           )}
 
           <div className="cart-card-meta">
