@@ -1,6 +1,11 @@
 import "../CartProductCard.css";
+import RemoveFromCardButton from "./RemoveCartButton";
 
 const CartProductCard = ({ item }) => {
+
+  const handleRemoveCard = () =>{
+
+  };
   const product = item?.product || {};
   return (
     <div className="cart-card">
@@ -30,6 +35,10 @@ const CartProductCard = ({ item }) => {
             <div className="cart-card-qty">
               <span className="cart-qty-label">Quity:</span>
               <span className="cart-qty-value">{item.quantity}</span>
+            </div>
+
+            <div className="Remove-card">
+                <RemoveFromCardButton onRemovefromCard={handleRemoveCard}/>
             </div>
           </div>
         </div>
