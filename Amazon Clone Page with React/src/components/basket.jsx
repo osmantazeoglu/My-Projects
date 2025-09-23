@@ -17,6 +17,18 @@ const Cart = ({ setCartCount }) => {
       .catch((err) => console.log("Clear cart error", err));
   };
 
+  const handleRemoveItem = (productId) => {
+    fetch(`http://localhost:3001/api/remove-from-basket/${productId}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setBasketItems(data);
+        setCartCount(data.length);
+      })
+      .catch((err) => console.log("Remove item error", err));
+  };
+
   useEffect(() => {
     fetch("http://localhost:3001/api/basket")
       .then((res) => res.json())
@@ -56,7 +68,7 @@ const Cart = ({ setCartCount }) => {
         </div>
         <div className="cart-items">
           {basketItems.map((item) => (
-            <CartProductCard key={item.productId} item={item} />
+            <CartProductCard key={item.productId} item={item} onRemove={handleRemoveItem} />
           ))}
         </div>
       </div>

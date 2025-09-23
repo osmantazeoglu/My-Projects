@@ -1,10 +1,10 @@
 import "../styles/components/CartProductCard.css";
 import RemoveFromCardButton from "./RemoveCartButton";
 
-const CartProductCard = ({ item }) => {
+const CartProductCard = ({ item, onRemove }) => {
 
   const handleRemoveCard = () =>{
-
+    onRemove?.(item.productId);
   };
   const product = item?.product || {};
   return (
