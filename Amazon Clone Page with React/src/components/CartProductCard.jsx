@@ -1,5 +1,5 @@
 import "../styles/components/CartProductCard.css";
-import RemoveFromCardButton from "./RemoveCartButton";
+import RemoveFromCardButton from "./ReduceCardButton";
 
 const CartProductCard = ({ item, onRemove, onAddToCart }) => {
   const handleAddToCart = () => {
