@@ -3,7 +3,7 @@ import RemoveFromCardButton from "./ReduceCardButton";
 import IncreaseCardButton from "./IncreaseCardButton";
 import DeleteFromCardButton from "./DeleteCardButton";
 
-const CartProductCard = ({ item, onRemove, onAddToCart }) => {
+const CartProductCard = ({ item, onRemove, onAddToCart, onDelete }) => {
   const handleAddToCart = () => {
     onAddToCart?.(item.productId);
   };
@@ -13,8 +13,8 @@ const CartProductCard = ({ item, onRemove, onAddToCart }) => {
   };
 
   const handleDeleteCard = () => {
-    
-  }
+    onDelete?.(item.productId);
+  };
 
   const product = item?.product || {};
   return (

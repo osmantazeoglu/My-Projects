@@ -49,7 +49,7 @@ const Cart = ({ setCartCount }) => {
   };
 
   const handleDeleteCard = (productId) => {
-    fetch(`http://localhost:3001/api/remove-from-basket/${productId}`, {
+    fetch(`http://localhost:3001/api/delete-from-basket/${productId}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
