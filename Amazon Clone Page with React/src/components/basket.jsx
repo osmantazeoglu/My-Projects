@@ -48,6 +48,18 @@ const Cart = ({ setCartCount }) => {
       .catch((err) => console.log("Sepete ekleme hatasi:", err));
   };
 
+  const handleDeleteCard = (productId) => {
+    fetch(`http://localhost:3001/api/remove-from-basket/${productId}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setBasketItems(data);
+        setCartCount(data.length);
+      })
+      .catch((err) => console.log("Delete item error", err));
+  };
+
   useEffect(() => {
     fetch("http://localhost:3001/api/basket")
       .then((res) => res.json())
@@ -92,6 +104,7 @@ const Cart = ({ setCartCount }) => {
               item={item}
               onRemove={handleRemoveCard}
               onAddToCart={handleAddToCart}
+              onDelete={handleDeleteCard}
             />
           ))}
         </div>
