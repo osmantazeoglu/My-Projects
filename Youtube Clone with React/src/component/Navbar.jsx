@@ -4,7 +4,7 @@ function Navbar(){
     return (
         <nav className="navbar-left">
             <FaBars className='menu-icon'/>
-            <h3>Youtube Clone</h3>
+            <h3>Youtube</h3>
         </nav>
     );
 }
