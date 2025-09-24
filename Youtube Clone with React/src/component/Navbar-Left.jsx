@@ -1,7 +1,7 @@
 import { FaBars } from "react-icons/fa";
 import youtubeIcon from "../../Logos/Youtube-icon.svg";
 
-function Navbar() {
+function NavbarLeft() {
   return (
     <nav className="navbar-left">
       <FaBars className="menu-icon" />
@@ -11,4 +11,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NavbarLeft;
