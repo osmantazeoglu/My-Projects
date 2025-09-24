@@ -105,6 +105,7 @@
   top: 12px;
   left: 6px;
   height: 5px;
+  outline: none;
 }
 
 .item-reduce-btn:hover {
@@ -113,6 +114,14 @@
 
 .item-reduce-btn:active {
   border: none;
+}
+
+.item-reduce-btn:focus,
+.item-reduce-btn:focus-visible,
+.item-reduce-btn:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
 }
 
 .cart-qty-value {
@@ -132,10 +141,33 @@
   top: 12px;
   right: 6px;
   height: 5px;
+  outline: none;
 }
 
 .item-increase-btn:hover {
   cursor: pointer;
+}
+
+.item-increase-btn:focus,
+.item-increase-btn:focus-visible,
+.item-increase-btn:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.item-delete-btn{
+  background-color: #52514f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+.item-delete-btn:hover{
+  background-color: #413f3d;
 }
 
 .cart-card-bottom {
