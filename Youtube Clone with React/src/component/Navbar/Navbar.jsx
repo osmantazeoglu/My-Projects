@@ -6,7 +6,7 @@ import NavbarRight from "./Navbar-Right";
 
 function Navbar() {
   return (
-    <div className="navbar-main">
+    <div className="navbar-main flex-div">
         <NavbarLeft/>
         <NavbarCenter/>
         <NavbarRight/>

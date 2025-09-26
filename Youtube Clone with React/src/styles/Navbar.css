@@ -1,3 +1,35 @@
 .navbar-main {
-  display: flex;
+  padding: 10px 2%;
+  justify-content: space-between;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar-left .menu-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    font-size: 15px;
+    border: none;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.navbar-left .menu-icon:hover{
+    background-color: #d6d6d6;
+}
+
+.logo-part{
+    cursor: pointer;
+}
+.navbar-left .youtube-icon{
+    width: 30px;
+    height: 30px;
 }

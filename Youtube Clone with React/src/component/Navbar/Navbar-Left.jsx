@@ -7,8 +7,10 @@ function NavbarLeft() {
       <button className="menu-icon">
         <FaBars />
       </button>
-      <img src={youtubeIcon} alt="YouTube" className="youtube-icon" />
-      <h3 className="youtube-title">Youtube</h3>
+      <div className="logo-part flex-div">
+        <img src={youtubeIcon} alt="YouTube" className="youtube-icon" />
+        <h3 className="youtube-title">Youtube</h3>
+      </div>
     </nav>
   );
 }
