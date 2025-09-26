@@ -1,4 +1,4 @@
-import { FaSearch } from "react-icons/fa";
+import { FaMicrophone, FaSearch } from "react-icons/fa";
 
 function NavbarCenter() {
   return (
@@ -6,6 +6,10 @@ function NavbarCenter() {
       <input className="Search-part" type="text" placeholder="Search" />
       <button className="Search-icon">
         <FaSearch />
+      </button>
+
+      <button className="mic-icon">
+        <FaMicrophone/>
       </button>
     </nav>
   );

@@ -69,3 +69,12 @@
   cursor: pointer;
   font-size: 20px;
 }
+
+.mic-icon {
+    width: 45px;
+    height: 45px;
+    margin-left: 15px;
+    border-radius: 50%;
+    border: none;
+    font-size: 16px;
+}
