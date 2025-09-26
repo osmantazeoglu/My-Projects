@@ -1,9 +1,9 @@
 import { FaBars } from "react-icons/fa";
-import youtubeIcon from "../../Logos/Youtube-icon.svg";
+import youtubeIcon from "../../../Logos/Youtube-icon.svg";
 
 function NavbarLeft() {
   return (
-    <nav className="navbar-left">
+    <nav className="navbar-left flex-div">
       <button className="menu-icon">
         <FaBars />
       </button>

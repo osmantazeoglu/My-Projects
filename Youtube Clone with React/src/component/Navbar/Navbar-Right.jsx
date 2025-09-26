@@ -1,7 +1,7 @@
 import { FaBell } from "react-icons/fa";
 function NavbarRight() {
   return (
-    <nav className="navbar-right">
+    <nav className="navbar-right flex-div">
       <button className="create-btn">
         <span className="plus-icon">+</span>
         Create
