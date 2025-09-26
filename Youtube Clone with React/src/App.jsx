@@ -1,17 +1,11 @@
 import React from "react";
-import NavbarLeft from "./component/Navbar-Left";
-import NavbarCenter from "./component/Navbar-Center";
-import NavbarRight from "./component/Navbar-Right";
+import Navbar from "./component/Navbar/Navbar";
 
 
 function App() {
   return (
     <div>
-      <div className="navbar-main">
-        <NavbarLeft/>
-        <NavbarCenter/>
-        <NavbarRight/>
-      </div>
+      <Navbar/>
     </div>
   );
 }

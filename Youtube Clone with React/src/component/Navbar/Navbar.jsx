@@ -1,0 +1,16 @@
+import React from "react";
+import NavbarLeft from "./Navbar-Left";
+import NavbarCenter from "./Navbar-Center";
+import NavbarRight from "./Navbar-Right";
+
+function Navbar() {
+  return (
+    <div className="navbar-main">
+        <NavbarLeft/>
+        <NavbarCenter/>
+        <NavbarRight/>
+    </div>
+  );
+}
+
+export default Navbar;
