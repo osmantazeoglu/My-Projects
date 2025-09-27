@@ -4,7 +4,7 @@ import youtubeIcon from "../../../Logos/Youtube-icon.svg";
 function NavbarLeft() {
   return (
     <nav className="navbar-left flex-div">
-      <button className="menu-icon">
+      <button className="menu-icon circle-btn">
         <FaBars />
       </button>
       <div className="logo-part flex-div">

@@ -6,10 +6,10 @@ function NavbarRight() {
         <span className="plus-icon">+</span>
         Create
       </button>
-      <button className="Notification-btn">
+      <button className="notification-btn circle-btn">
         <FaBell />
       </button>
-      <button className="avatar-btn">O</button>
+      <button className="avatar-btn circle-btn">O</button>
     </nav>
   );
 }

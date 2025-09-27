@@ -10,7 +10,7 @@ function NavbarCenter() {
         <FaSearch />
       </button>
 
-      <button className="mic-icon">
+      <button className="mic-icon circle-btn">
         <FaMicrophone />
       </button>
     </nav>
