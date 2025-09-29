@@ -1,6 +1,6 @@
 .sidebar {
   background: #fff;
-  width: 20%;
+  width: 15%;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -91,4 +91,12 @@
 .small-sidebar .side-text {
   font-size: 10px;
   align-items: center;
+}
+
+@media (max-width: 180px) {
+  .small-sidebar {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+  }
 }
