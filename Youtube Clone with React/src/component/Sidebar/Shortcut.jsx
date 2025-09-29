@@ -6,21 +6,21 @@ import music from "../../assets/Youtube-Music.png";
 function Shortcut() {
   return (
     <div className="shortcut-link">
-      <div className="side-link">
-        <img src={home} alt="" />
-        <p>Home</p>
+      <div className="side-link side-list">
+        <img src={home} alt="" className="side-img" />
+        <p className="side-text">Home</p>
       </div>
-      <div className="side-link">
-        <img src={shorts} alt="" />
-        <p>Shorts</p>
+      <div className="side-link side-list">
+        <img src={shorts} alt="" className="side-img" />
+        <p className="side-text">Shorts</p>
       </div>
-      <div className="side-link">
-        <img src={subscription} alt="" />
-        <p>Subscription</p>
+      <div className="side-link side-list">
+        <img src={subscription} alt="" className="side-img" />
+        <p className="side-text">Subscription</p>
       </div>
-      <div className="side-link">
-        <img src={music} alt="" />
-        <p>Youtube Music</p>
+      <div className="side-link side-list">
+        <img src={music} alt="" className="side-img" />
+        <p className="side-text">Youtube Music</p>
       </div>
       <hr />
     </div>
