@@ -3,6 +3,7 @@ import "../../styles/Sidebar.css";
 import Shortcut from "./Shortcut";
 import Youpart from "./You-Part";
 import Subscriptions from "./Subscriptions";
+import Explore from "./Explore";
 
 function Sidebar() {
   return (
@@ -10,6 +11,7 @@ function Sidebar() {
       <Shortcut />
       <Youpart />
       <Subscriptions />
+      <Explore />
     </div>
   );
 }
