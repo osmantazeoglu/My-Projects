@@ -1,7 +1,6 @@
 .side-list {
   display: flex;
   gap: 15px;
-  padding: 5px;
   align-items: center;
   cursor: pointer;
 }
