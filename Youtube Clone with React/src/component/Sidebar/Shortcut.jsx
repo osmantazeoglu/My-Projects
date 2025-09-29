@@ -1,4 +1,3 @@
-import "../../styles/Sidebar.css";
 import shorts from "../../assets/youtube-shorts.svg";
 import home from "../../assets/Youtube-Home.png";
 import subscription from "../../assets/youtube-subscriptions.svg";

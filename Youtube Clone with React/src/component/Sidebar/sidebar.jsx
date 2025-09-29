@@ -1,5 +1,6 @@
 import React from "react";
 import Shortcut from "./Shortcut";
+import "../../styles/Sidebar.css";
 
 function Sidebar() {
   return (
