@@ -9,7 +9,7 @@ import tech from "../../assets/tech.png";
 
 function Explore() {
   return (
-    <div className="you-part">
+    <div className="explore-part">
       <h4>Explore</h4>
       <div className="explore-list side-list">
         <img src={automobiles} alt="" className="side-img" />

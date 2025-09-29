@@ -29,8 +29,8 @@ function Youpart() {
         <img src={like} alt="" className="side-img" />
         <p className="side-text">Liked Videos</p>
       </div>
-      <div className="you-list side-list">
-        <img src={download} alt="" className="side-img" />
+      <div className="you-list side-list download-list">
+        <img src={download} alt="" className="side-img" id="download-icon"/>
         <p className="side-text">Downloads</p>
       </div>
       <hr />

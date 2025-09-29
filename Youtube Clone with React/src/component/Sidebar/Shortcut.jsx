@@ -5,7 +5,7 @@ import music from "../../assets/Youtube-Music.png";
 
 function Shortcut() {
   return (
-    <div className="shortcut-link">
+    <div className="shortcut-part">
       <div className="side-link side-list">
         <img src={home} alt="" className="side-img" />
         <p className="side-text">Home</p>

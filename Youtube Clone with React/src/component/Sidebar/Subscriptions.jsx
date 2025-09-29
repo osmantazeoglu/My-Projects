@@ -7,7 +7,7 @@ import gerard from "../../assets/gerard.png"
 
 function Subscriptions() {
   return (
-    <div className="subscriptions">
+    <div className="subscriptions-part">
       <h4>Subscriptions</h4>
       <div className="sub-list side-list">
         <img src={jack} alt="" className="sub-img" />

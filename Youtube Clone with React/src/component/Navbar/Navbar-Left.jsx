@@ -1,10 +1,13 @@
 import { FaBars } from "react-icons/fa";
 import youtubeIcon from "../../../Logos/Youtube-icon.svg";
 
-function NavbarLeft() {
+function NavbarLeft({ setSidebar }) {
   return (
     <nav className="navbar-left flex-div">
-      <button className="menu-icon circle-btn">
+      <button
+        className="menu-icon circle-btn"
+        onClick={() => setSidebar((prev) => !prev)}
+      >
         <FaBars />
       </button>
       <div className="logo-part flex-div">

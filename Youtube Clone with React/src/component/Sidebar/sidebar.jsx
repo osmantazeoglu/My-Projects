@@ -5,9 +5,9 @@ import Youpart from "./You-Part";
 import Subscriptions from "./Subscriptions";
 import Explore from "./Explore";
 
-function Sidebar() {
+function Sidebar({ sidebar }) {
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${sidebar ? "" : "small-sidebar"}`}>
       <Shortcut />
       <Youpart />
       <Subscriptions />
