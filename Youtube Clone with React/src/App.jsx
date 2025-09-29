@@ -1,4 +1,6 @@
 import React from "react";
+import HomePage from "./Pages/Home-Pages/Home"
+import VideoPage from "./Pages/Video-Pages/Video"
 import Navbar from "./component/Navbar/Navbar";
 import { Routes } from "react-router-dom";
 
@@ -8,8 +10,8 @@ function App() {
     <div>
       <Navbar/>
       <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/video/:categoryId/:videoId' element={<Video/>} />
+        <Route path='/' element={<HomePage/>} />
+        <Route path='/video/:categoryId/:videoId' element={<VideoPage/>} />
       </Routes>
     </div>
   );
