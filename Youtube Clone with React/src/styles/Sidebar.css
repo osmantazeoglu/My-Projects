@@ -61,6 +61,7 @@
 
 .small-sidebar {
   width: 9%;
+  padding-left: 0;
 }
 
 .small-sidebar .explore-part,
@@ -85,10 +86,9 @@
   justify-content: center;
   gap: 6px;
   height: auto;
-  padding: 8px 0;
 }
 
 .small-sidebar .side-text {
   font-size: 10px;
-  text-align: center;
+  align-items: center;
 }
