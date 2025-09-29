@@ -1,5 +1,7 @@
 import React from "react";
 import "../../styles/Sidebar.css";
+import shorts from "../../assets/youtube-shorts.svg"
+
 
 function Sidebar() {
   return (
@@ -8,7 +10,9 @@ function Sidebar() {
         <div className="side-link">
           <p>Home</p>
         </div>
-        <div className="side-link"></div>
+        <div className="side-link">
+            <img src={shorts} alt="" /><p>Shorts</p>
+        </div>
         <div className="side-link"></div>
         <div className="side-link"></div>
         <hr />
