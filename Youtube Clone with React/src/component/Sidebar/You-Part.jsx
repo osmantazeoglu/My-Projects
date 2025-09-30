@@ -8,7 +8,7 @@ import download from "../../assets/youtube-download.svg";
 function Youpart() {
   return (
     <div className="you-part">
-      <h4>You</h4>
+      <h3>You</h3>
       <div className="you-list side-list">
         <img src={history} alt="" className="side-img" />
         <p className="side-text">History</p>
