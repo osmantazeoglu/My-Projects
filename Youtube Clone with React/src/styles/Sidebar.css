@@ -60,15 +60,16 @@
 }
 
 .small-sidebar {
-  width: 9%;
+  width: 4%;
   padding-left: 0;
 }
 
 .small-sidebar .explore-part,
 .small-sidebar .shortcur-part,
 .small-sidebar .subscriptions-part,
+.small-sidebar .side-text,
 .small-sidebar hr,
-.small-sidebar h4 {
+.small-sidebar h3 {
   display: none;
 }
 
@@ -81,22 +82,5 @@
 }
 
 .small-sidebar .side-list {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  height: auto;
-}
-
-.small-sidebar .side-text {
-  font-size: 10px;
-  align-items: center;
-}
-
-@media (max-width: 180px) {
-  .small-sidebar {
-    width: 0;
-    padding: 0;
-    overflow: hidden;
-  }
+  margin-left: 10px;
 }
