@@ -1,5 +1,5 @@
 import React from "react";
-import "./PlayVideo.css";
+import "../styles/PlayVideo.css";
 
 function PlayVideo() {
   return <div></div>;
