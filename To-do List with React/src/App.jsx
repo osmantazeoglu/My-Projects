@@ -98,6 +98,18 @@ function App() {
     }
   };
 
+  const removeImage = (index, e) => {
+    e.stopPropagation();
+    setTodos(todos.map((todo, i) => 
+      i === index ? { ...todo, image: null } : todo
+    ));
+  };
+
+  const removeEditImage = (e) => {
+    e.stopPropagation();
+    setEditImage(null);
+  };
+
   return (
     <div id='todo-container'>
       <div className='todo-title'>
@@ -159,11 +171,19 @@ function App() {
                   </div>
                   
                   {editImage && (
-                    <img 
-                      src={editImage} 
-                      alt="Edit image" 
-                      className="edit-image-preview"
-                    />
+                    <div className="edit-image-container">
+                      <img 
+                        src={editImage} 
+                        alt="Edit image" 
+                        className="edit-image-preview"
+                      />
+                      <button
+                        onClick={(e) => removeEditImage(e)}
+                        className="edit-image-delete-btn"
+                      >
+                        ×
+                      </button>
+                    </div>
                   )}
                   
                   <div className="edit-buttons-container">
@@ -185,7 +205,7 @@ function App() {
                       htmlFor={`edit-imginp-${index}`}
                       className="edit-image-btn"
                     >
-                      🖼️ Add Image
+                      🖼️ {editImage ? 'Change Image' : 'Add Image'}
                     </label>
                     <input
                       type="file"
@@ -207,16 +227,19 @@ function App() {
                     </div>
                   </div>
                   {todo.image && (
-                    <img 
-                      src={todo.image} 
-                      alt="Todo image" 
-                      style={{ 
-                        width: '40px', 
-                        height: '40px', 
-                        objectFit: 'cover', 
-                        borderRadius: '4px' 
-                      }} 
-                    />
+                    <div className="todo-image-container">
+                      <img 
+                        src={todo.image} 
+                        alt="Todo image" 
+                        className="todo-image"
+                      />
+                      <button
+                        onClick={(e) => removeImage(index, e)}
+                        className="image-delete-btn"
+                      >
+                        ×
+                      </button>
+                    </div>
                   )}
                   {todo.text && (
                     <span style={{
