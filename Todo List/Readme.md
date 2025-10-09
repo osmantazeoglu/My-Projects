@@ -1,59 +1,64 @@
 # ✅ Todo List
 
-A modern, image-supported **To-Do List App** built with **HTML**, **CSS**, and **JavaScript (OOP)**.
-It allows adding, editing, and deleting tasks — with optional image attachments for each item.
+A modern, image-supported **To-Do List App** built with **HTML**,
+**CSS**, and **JavaScript (OOP)**.\
+It allows adding, editing, and deleting tasks --- with optional image
+attachments for each item.
 
----
+------------------------------------------------------------------------
 
 ## 🌐 Preview
 
-<!-- Replace with your actual image -->
-
 ![Todo App Preview](./images/todo-ui.png)
 
----
+> Example screenshot of the Todo List app.\
+> *(If the image does not load, ensure `images/todo-ui.png` exists in
+> the repo.)*
 
-## ⚙️ Install
+------------------------------------------------------------------------
 
-No dependencies — just open it in your browser.
+## ⚙️ Setup
 
-```bash
+No dependencies required --- works directly in your browser.
+
+``` bash
+# Clone this repository
 git clone https://github.com/osmantazeoglu/My-Projects.git
-cd "Todo List"
-open index.html
+cd "My-Projects/Todo List"
 ```
 
----
+Then open **index.html** in any modern browser (double-click or drag
+into the browser).
+
+------------------------------------------------------------------------
 
 ## 💡 Features
 
-* ✏️ Add, edit, delete todos
-* 🖼 Attach images to tasks
-* 🧮 Real-time task count and plural text update
-* 🧹 “Clear All” feature
-* 🪶 Smooth empty-state placeholder
-* 📱 Responsive, accessible UI
+-   ✏️ Add, edit, delete todos
+-   🖼 Attach images to tasks
+-   🧮 Real-time task count and plural text update
+-   🧹 "Clear All" feature
+-   🪶 Smooth empty-state placeholder
+-   📱 Responsive, accessible UI
 
----
+------------------------------------------------------------------------
 
 ## 🧱 Project Structure
 
-```
-Todo List/
-├── index.html
-├── styles.css
-├── script.js
-└── images/
-```
+    Todo List/
+    ├── index.html
+    ├── styles.css
+    ├── script.js
+    └── images/
 
----
+------------------------------------------------------------------------
 
 ## 🧩 HTML Snippet
 
-Defines the structure of the main UI — title, input area, list, and footer.
+Defines the structure of the main UI --- title, input area, list, and
+footer.
 
-```html
-<!-- Partial snippet from index.html -->
+``` html
 <main class="container">
   <header class="title">
     <div class="todoicon">
@@ -78,15 +83,11 @@ Defines the structure of the main UI — title, input area, list, and footer.
 </main>
 ```
 
-> **💬 Tip:** The header image, input field, and buttons are designed to work seamlessly with image attachments.
-
----
+------------------------------------------------------------------------
 
 ## 🎨 CSS Theme (Excerpt)
 
-Core color palette and layout rules that define the app’s visual identity.
-
-```css
+``` css
 :root {
   --brand-purple: rgb(173, 48, 173);
   --brand-blue: rgb(63, 132, 221);
@@ -114,9 +115,7 @@ body {
 }
 ```
 
-> **🎨 Design note:** Simple gradients and subtle shadows give a lightweight, modern look.
-
----
+------------------------------------------------------------------------
 
 ## ⚙️ JavaScript Logic
 
@@ -124,7 +123,7 @@ body {
 
 Encapsulates all functionality inside a single `TodoApp` class.
 
-```js
+``` js
 class TodoApp {
   constructor() {
     this.todoList = document.getElementById('todolist');
@@ -141,15 +140,11 @@ class TodoApp {
 }
 ```
 
-> **📦 Note:** Using a class keeps logic organized, scalable, and easy to maintain.
-
----
+------------------------------------------------------------------------
 
 ### 🪄 Input & Event Handling
 
-Handles user actions: adding tasks, clearing all, and selecting images.
-
-```js
+``` js
 bindGlobalEvents() {
   this.addBtn.addEventListener('click', () => this.addTodo());
   this.textInput.addEventListener('keypress', (event) => {
@@ -163,15 +158,11 @@ bindGlobalEvents() {
 }
 ```
 
-> **💡 Tip:** Each event is modular — you can extend or modify behavior without touching other logic.
-
----
+------------------------------------------------------------------------
 
 ### 🧾 Adding & Managing Todos
 
-Creates tasks with optional text and image; manages editing and deletion.
-
-```js
+``` js
 addTodo() {
   const todoText = this.textInput.value.trim();
   if (todoText === '' && !this.selectedImage) {
@@ -184,7 +175,6 @@ addTodo() {
   textSpan.textContent = todoText;
   listItem.appendChild(textSpan);
 
-  // Add delete button
   const deleteButton = document.createElement('button');
   deleteButton.textContent = 'x';
   deleteButton.classList.add('dlt-btn');
@@ -201,15 +191,11 @@ addTodo() {
 }
 ```
 
-> **🧩 Tip:** Tasks are dynamically created with event listeners — no manual HTML changes needed.
-
----
+------------------------------------------------------------------------
 
 ### 📸 Image Support (Excerpt)
 
-Allows image attachments in new todos and editing mode.
-
-```js
+``` js
 handleAddImageFromHeader(event) {
   const file = event.target.files[0];
   if (!file) return;
@@ -223,15 +209,11 @@ handleAddImageFromHeader(event) {
 }
 ```
 
-> **🖼️ Example:** When an image is selected, it’s previewed directly in the task item.
-
----
+------------------------------------------------------------------------
 
 ### 🔢 Task Counter
 
-Updates the number of active tasks and adjusts text ("task" vs. "tasks").
-
-```js
+``` js
 updateTaskCount() {
   const count = this.todoList.querySelectorAll('li:not(.completed)').length;
   this.taskCountSpan.textContent = count;
@@ -239,10 +221,11 @@ updateTaskCount() {
 }
 ```
 
-> **📊 UX Touch:** Gives instant feedback about remaining work.
-
----
+------------------------------------------------------------------------
 
 ## 📄 License
 
-This project is licensed under the **MIT License**.
+This project is licensed under the **MIT License**.\
+See the [LICENSE](./LICENSE) file for details.
+
+------------------------------------------------------------------------
