@@ -1,179 +1,209 @@
-<h1 align="center">🧮 Calculator</h1>
+# 🧮 Calculator
 
-<p align="center">
-  <b>A clean, responsive, and functional calculator built with HTML, CSS, and JavaScript.</b><br>
-  <i>Perform basic arithmetic operations just like a classic calculator — lightweight and elegant.</i>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"/>
-  <img src="https://img.shields.io/badge/tech-HTML%20%7C%20CSS%20%7C%20JavaScript-yellow.svg" alt="Tech Stack"/>
-  <img src="https://img.shields.io/badge/status-Completed-brightgreen.svg" alt="Status"/>
-</p>
+A minimal and responsive calculator built with **HTML**, **CSS**, and **JavaScript**.
+This project demonstrates clean UI structure, keyboard support, and efficient event-driven calculation handling.
 
 ---
 
 ## 🌐 Preview
 
-<p align="center">
-  <!-- 📸 Add a full screenshot of the calculator UI here -->
-  <img src="./images/calculator-ui.png" width="600" alt="Calculator UI"/>
-  <br>
-  <i>Full calculator interface displaying all buttons and layout.</i>
-</p>
+<!-- Replace with your actual image -->
+
+![Calculator Preview](./images/calculator-ui.png)
 
 ---
 
-## ⚙️ Installation
+## ⚙️ Install
 
-<details>
-<summary>Click to expand</summary>
+No dependencies required — works directly in your browser.
 
 ```bash
 # Clone this repository
 git clone https://github.com/osmantazeoglu/My-Projects/tree/master/Calculator
 
-# Navigate into the folder
+# Open project folder
 cd Calculator
 
-# Open index.html in your browser
+# Run
+open index.html
 ```
-
-Or simply drag and drop the `index.html` file into your browser window.
-
-</details>
 
 ---
 
 ## 💡 Features
 
-✅ Digits **0–9** and **00**
-✅ Arithmetic operations: **+**, **−**, **×**, **÷**
-✅ **Decimal point (.)** for floating numbers
-✅ **C** button → clears the last entry
-✅ **AC** button → resets the entire input
-✅ **=** button → displays only the result (clears previous expression)
-✅ Responsive layout
-✅ Built with modular, clean JavaScript
+* 🧩 Basic operations: `+`, `−`, `×`, `÷`
+* 🔢 Double-zero (`00`) support
+* ⚙️ Decimal input (`.`)
+* 🧼 `C` = Clear one, `AC` = Clear all
+* ✅ `=` evaluates the expression
+* ⌨️ Full keyboard input mapping
+* 🎨 Responsive, mobile-friendly UI
 
 ---
 
-## 🧠 Usage
+## 🧱 Project Structure
 
-<details>
-<summary>See examples</summary>
+```
+Calculator/
+├── index.html
+├── styles.css
+├── script.js
+└── images/
+```
+
+---
+
+## 🧩 HTML Snippet
+
+Defines calculator buttons and layout.
+
+```html
+<!-- Partial snippet from index.html -->
+<div class="calculator">
+  <form onsubmit="return false">
+    <div class="display">
+      <input type="text" name="display" placeholder="0" autocomplete="off">
+    </div>
+    <div>
+      <input type="button" value="AC" class="Clear btn">
+      <input type="button" value="C" class="Del btn">
+      <input type="button" value="." class="btn operator">
+      <input type="button" value="/" class="btn operator">
+    </div>
+    <div>
+      <input type="button" value="7" class="btn">
+      <input type="button" value="8" class="btn">
+      <input type="button" value="9" class="btn">
+      <input type="button" value="*" class="btn operator">
+    </div>
+    <div>
+      <input type="button" value="=" class="eql btn">
+    </div>
+  </form>
+</div>
+```
+
+---
+
+## 🎨 CSS Theme (Excerpt)
+
+Focuses on color scheme, spacing, and interaction design.
+
+```css
+:root {
+  --bg: #e3e3e3;
+  --panel: #3a4452;
+  --text: #ffffff;
+  --btn-bg: #eef1f5;
+  --btn-text: #222222;
+  --op-bg: #556074;
+  --accent: #ff9500;
+  --radius: 10px;
+  --space: 10px;
+}
+
+.calculator {
+  background-color: var(--panel);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.btn {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  transition: background-color 120ms ease, transform 80ms ease;
+}
+.btn.operator { background-color: var(--op-bg); color: var(--text); }
+.eql.btn { background-color: var(--accent); color: var(--text); }
+```
+
+---
+
+## ⚙️ JavaScript Logic
+
+### 🧠 Input Handling
+
+Maps keyboard and button inputs to calculator actions.
+
+```js
+const display = document.querySelector('input[name="display"]');
+const buttons = document.querySelectorAll(".btn");
+
+const operators = ["+", "-", "*", "/", "."];
+
+const keyMap = {
+  0: "0", 1: "1", 2: "2", 3: "3",
+  4: "4", 5: "5", 6: "6", 7: "7",
+  8: "8", 9: "9", "+": "+", "-": "-",
+  "*": "*", "/": "/", ".": ".", Enter: "=",
+  Delete: "AC", Backspace: "C",
+};
+
+document.addEventListener("keydown", (event) => {
+  if (document.activeElement === display) return;
+  const mappedKey = keyMap[event.key];
+  const btn = Array.from(buttons).find(b => b.value === mappedKey);
+  if (btn) {
+    btn.click();
+    event.preventDefault();
+  }
+});
+```
+
+---
+
+### ⚡ Calculation Logic
+
+Handles clearing, deletion, and mathematical evaluation.
+
+```js
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const value = button.value;
+
+    if (value === "AC") {
+      display.value = "";
+    } else if (value === "C") {
+      display.value = display.value.slice(0, -1);
+    } else if (value === "=") {
+      try {
+        display.value = eval(display.value);
+      } catch {
+        display.value = "Error";
+      }
+    } else {
+      const lastChar = display.value.slice(-1);
+      if (!(operators.includes(value) && operators.includes(lastChar))) {
+        display.value += value;
+      }
+    }
+
+    display.scrollLeft = display.scrollWidth;
+  });
+});
+```
+
+---
+
+## 🧠 Example Usage
 
 ```text
-Example 1: 12 + 8 → = → 20
-Example 2: 9 × 3 → = → 27
-Example 3: 5.7 + 8.5 → = → 14.2
-Example 4: 50 ÷ 2 → = → 25
+12 + 8 = 20
+9 × 3 = 27
+5.7 + 8.5 = 14.2
+50 ÷ 2 = 25
 ```
-
-</details>
-
-<p align="center">
-  <!-- 📸 Add a screenshot showing the result after pressing "=" -->
-  <img src="./images/calculator-process.png" width="450" alt="Calculator process example"/>
-  <img src="./images/calculator-result.png" width="450" alt="Calculator result example"/>
-  <br>
-  <i>After pressing "=", only the final result (e.g., 14.2) is displayed on the screen.</i>
-</p>
-
----
-
-## 🧩 Project Structure
-
-```bash
-Calculator/
-├── index.html        # Main HTML structure
-├── style.css         # Calculator styling and layout
-├── script.js         # Core logic and event handling
-└── images/           # Screenshots and code snippets
-```
-
----
-
-## 🖼️ Logic & Code Highlights
-
-Below are example code snippets from the project showing how the calculator logic works.
-
-### 🎯 Handling Button Clicks
-
-<p align="center">
-  <!-- 📸 Add screenshot of JS function handling input clicks -->
-  <img src="./images/code-handleInput.png" width="600" alt="JavaScript input handler"/>
-  <br>
-  <i>Handles number and operator input dynamically using event listeners.</i>
-</p>
-
-### 🧾 Updating the Display
-
-<p align="center">
-  <!-- 📸 Add screenshot of display update logic -->
-  <img src="./images/code-displayUpdate.png" width="600" alt="Display update logic"/>
-  <br>
-  <i>Updates the calculator screen in real-time and clears previous expressions after evaluation.</i>
-</p>
-
----
-
-## 🖼️ Additional UI Previews
-
-<p align="center">
-  <!-- 📸 Add screenshot showing C and AC button behavior -->
-  <img src="./images/calculator-clear.png" width="500" alt="Clear button example"/>
-  <br>
-  <i>Showcase of C and AC button behavior — clearing last entry or full input.</i>
-</p>
-
----
-
-## 🧱 Technologies Used
-
-| Technology           | Purpose                                            |
-| -------------------- | -------------------------------------------------- |
-| **HTML5**            | Base structure and layout                          |
-| **CSS3**             | Styling and responsive design                      |
-| **JavaScript (ES6)** | Core calculator functionality and DOM manipulation |
-
----
-
-## 🤝 Contributing
-
-<details>
-<summary>How to contribute</summary>
-
-We welcome all contributions! To get started:
-
-```bash
-# Fork this repository
-# Create a new branch for your feature
-git checkout -b feature-name
-
-# Commit your changes
-git commit -m "Add new feature"
-
-# Push your branch
-git push origin feature-name
-```
-
-Then open a **Pull Request** on GitHub.
-
-</details>
 
 ---
 
 ## 📄 License
 
 This project is licensed under the **MIT License**.
-See the [LICENSE](./LICENSE) file for details.
 
 ---
 
 ## ⭐ Support
 
-If you like this project, please consider giving it a **⭐ star** on GitHub!
-It helps others discover the project and supports open-source development.
-
----
+If you found this project useful, please ⭐ it on GitHub and share it with others!
