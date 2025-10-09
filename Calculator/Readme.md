@@ -74,8 +74,8 @@ Example 4: 50 ÷ 2 = 25
 
 <p align="center">
   <!-- 📸 Add a screenshot showing an operation result -->
-  <img src="./images/calculator-prosses.png" width="450" height="635" alt="Calculator result example"/>
-  <img src="./images/calculator-result.png" width="450" height="635" alt="Calculator result example"/>
+  <img src="./images/calculator-prosses.png" width="450"  alt="Calculator result example"/>
+  <img src="./images/calculator-result.png" width="450" alt="Calculator result example"/>
   <br>
   <i>Example: Displaying the result of 5.7 + 8.5 = 14.2</i>
 </p>
