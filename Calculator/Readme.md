@@ -151,15 +151,3 @@ See the [LICENSE](./LICENSE) file for full details.
 If you find this project helpful, please consider giving it a **⭐ star** on GitHub — it means a lot!
 
 ---
-
-### 🖼️ Image Tips
-
-* Place all images in the `images/` folder.
-* Use Markdown or HTML `<img>` tags for better control over size.
-* Recommended resolution: **1280×720** (PNG or JPG).
-* To embed:
-
-  ```markdown
-  ![Description](./images/your-image.png)
-  ```
-
