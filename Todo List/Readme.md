@@ -18,7 +18,7 @@ It allows adding, editing, and deleting tasks — with optional image attachment
 No dependencies — just open it in your browser.
 
 ```bash
-git clone https://github.com/osmantazeoglu/My-Projects.git
+git clone https://github.com/osmantazeoglu/My-Projects/tree/master/Todo%20List
 cd "Todo List"
 open index.html
 ```
