@@ -210,9 +210,3 @@ buttons.forEach((button) => {
 ## 📄 License
 
 This project is licensed under the **MIT License**.
-
----
-
-## ⭐ Support
-
-If you found this project useful, please ⭐ it on GitHub and share it with others!

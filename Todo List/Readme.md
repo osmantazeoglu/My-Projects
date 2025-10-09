@@ -246,9 +246,3 @@ updateTaskCount() {
 ## 📄 License
 
 This project is licensed under the **MIT License**.
-
----
-
-## ⭐ Support
-
-If you like this project, consider ⭐ starring it on GitHub and sharing it with others!

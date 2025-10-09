@@ -185,10 +185,3 @@ export function createRecipeCard(recipe) {
 
 Licensed under the **MIT License**.\
 See the [LICENSE](./LICENSE) file for details.
-
-------------------------------------------------------------------------
-
-## ⭐ Support
-
-If you like this project, please ⭐ it on GitHub!\
-Contributions and suggestions are always welcome.
