@@ -1,6 +1,7 @@
 # Calculator 🧮
 
-A simple calculator app with basic arithmetic operations.
+A simple and functional calculator built with modern web technologies.
+This project replicates the basic functionality of a standard calculator — allowing users to perform arithmetic operations easily through an intuitive interface.
 
 ## 🚀 Features
 - Addition, subtraction, multiplication, division
