@@ -19,12 +19,8 @@ No dependencies required — works directly in your browser.
 
 ```bash
 # Clone this repository
-git clone https://github.com/osmantazeoglu/My-Projects/tree/master/Calculator
-
-# Open project folder
+git clone https://github.com/osmantazeoglu/My-Projects.git
 cd Calculator
-
-# Run
 open index.html
 ```
 
