@@ -19,7 +19,7 @@
   <!-- 📸 Add a full screenshot of the calculator UI here -->
   <img src="./images/calculator-ui.png" width="600" alt="Calculator UI"/>
   <br>
-  <i>Full interface view with all buttons visible</i>
+  <i>Full calculator interface displaying all buttons and layout.</i>
 </p>
 
 ---
@@ -39,7 +39,7 @@ cd Calculator
 # Open index.html in your browser
 ```
 
-Or simply drag the `index.html` file into your web browser to start using the calculator.
+Or simply drag and drop the `index.html` file into your browser window.
 
 </details>
 
@@ -51,10 +51,10 @@ Or simply drag the `index.html` file into your web browser to start using the ca
 ✅ Arithmetic operations: **+**, **−**, **×**, **÷**
 ✅ **Decimal point (.)** for floating numbers
 ✅ **C** button → clears the last entry
-✅ **AC** button → resets the screen
-✅ **=** button → computes the expression
-✅ Responsive design for all screen sizes
-✅ Clean and modular JavaScript logic
+✅ **AC** button → resets the entire input
+✅ **=** button → displays only the result (clears previous expression)
+✅ Responsive layout
+✅ Built with modular, clean JavaScript
 
 ---
 
@@ -64,20 +64,20 @@ Or simply drag the `index.html` file into your web browser to start using the ca
 <summary>See examples</summary>
 
 ```text
-Example 1: 12 + 8 = 20
-Example 2: 9 × 3 = 27
-Example 3: 5.5 + 4.5 = 10
-Example 4: 50 ÷ 2 = 25
+Example 1: 12 + 8 → = → 20
+Example 2: 9 × 3 → = → 27
+Example 3: 5.7 + 8.5 → = → 14.2
+Example 4: 50 ÷ 2 → = → 25
 ```
 
 </details>
 
 <p align="center">
-  <!-- 📸 Add a screenshot showing an operation result -->
-  <img src="./images/calculator-prosses.png" width="450"  alt="Calculator result example"/>
+  <!-- 📸 Add a screenshot showing the result after pressing "=" -->
+  <img src="./images/calculator-process.png" width="450" alt="Calculator process example"/>
   <img src="./images/calculator-result.png" width="450" alt="Calculator result example"/>
   <br>
-  <i>Example: Displaying the result of 5.7 + 8.5 = 14.2</i>
+  <i>After pressing "=", only the final result (e.g., 14.2) is displayed on the screen.</i>
 </p>
 
 ---
@@ -86,32 +86,56 @@ Example 4: 50 ÷ 2 = 25
 
 ```bash
 Calculator/
-├── index.html        # Main structure of the calculator
-├── style.css         # Styling and layout
-├── script.js         # Logic and event handling
-└── images/           # Folder for screenshots or icons
+├── index.html        # Main HTML structure
+├── style.css         # Calculator styling and layout
+├── script.js         # Core logic and event handling
+└── images/           # Screenshots and code snippets
 ```
 
 ---
 
-## 🖼️ Additional Previews
+## 🖼️ Logic & Code Highlights
+
+Below are example code snippets from the project showing how the calculator logic works.
+
+### 🎯 Handling Button Clicks
 
 <p align="center">
-  <!-- 📸 Add screenshot showing C and AC functionality -->
+  <!-- 📸 Add screenshot of JS function handling input clicks -->
+  <img src="./images/code-handleInput.png" width="600" alt="JavaScript input handler"/>
+  <br>
+  <i>Handles number and operator input dynamically using event listeners.</i>
+</p>
+
+### 🧾 Updating the Display
+
+<p align="center">
+  <!-- 📸 Add screenshot of display update logic -->
+  <img src="./images/code-displayUpdate.png" width="600" alt="Display update logic"/>
+  <br>
+  <i>Updates the calculator screen in real-time and clears previous expressions after evaluation.</i>
+</p>
+
+---
+
+## 🖼️ Additional UI Previews
+
+<p align="center">
+  <!-- 📸 Add screenshot showing C and AC button behavior -->
   <img src="./images/calculator-clear.png" width="500" alt="Clear button example"/>
   <br>
-  <i>Showcase: Clearing entries with C or AC button</i>
+  <i>Showcase of C and AC button behavior — clearing last entry or full input.</i>
 </p>
 
 ---
 
 ## 🧱 Technologies Used
 
-| Technology           | Description                      |
-| -------------------- | -------------------------------- |
-| **HTML5**            | Structure and layout             |
-| **CSS3**             | Styling and design               |
-| **JavaScript (ES6)** | Functionality and event handling |
+| Technology           | Purpose                                            |
+| -------------------- | -------------------------------------------------- |
+| **HTML5**            | Base structure and layout                          |
+| **CSS3**             | Styling and responsive design                      |
+| **JavaScript (ES6)** | Core calculator functionality and DOM manipulation |
 
 ---
 
@@ -120,21 +144,21 @@ Calculator/
 <details>
 <summary>How to contribute</summary>
 
-Contributions are welcome! Follow these steps:
+We welcome all contributions! To get started:
 
 ```bash
-# Fork the project
-# Create a new branch
+# Fork this repository
+# Create a new branch for your feature
 git checkout -b feature-name
 
-# Make your changes
+# Commit your changes
 git commit -m "Add new feature"
 
 # Push your branch
 git push origin feature-name
 ```
 
-Then open a pull request on GitHub.
+Then open a **Pull Request** on GitHub.
 
 </details>
 
@@ -143,12 +167,13 @@ Then open a pull request on GitHub.
 ## 📄 License
 
 This project is licensed under the **MIT License**.
-See the [LICENSE](./LICENSE) file for full details.
+See the [LICENSE](./LICENSE) file for details.
 
 ---
 
 ## ⭐ Support
 
-If you find this project helpful, please consider giving it a **⭐ star** on GitHub — it means a lot!
+If you like this project, please consider giving it a **⭐ star** on GitHub!
+It helps others discover the project and supports open-source development.
 
 ---
