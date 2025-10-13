@@ -1,3 +1,4 @@
+
 // Closure
 function bankAccount(balance) {
   return {
