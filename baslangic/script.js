@@ -1,11 +1,3 @@
-var x = 10;
-let y = 15;
-const z = 20;
-
-console.log("x = ", x);
-console.log("y = ", y);
-console.log("z = ", z);
-
 let num = 18;
 
 if (num % 2 == 0) {
@@ -46,3 +38,5 @@ const button = document.getElementById("test-button");
 button.addEventListener("click", function(){
    div.style.backgroundColor = 'red';
 });
+
+
