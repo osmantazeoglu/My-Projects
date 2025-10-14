@@ -98,3 +98,13 @@ console.log(enBuyuk);
 const sayilar1 = [15, 42, 8, 103, 27, 3];
 const enKucuk = Math.min(...sayilar1);
 console.log(enKucuk); // 8
+
+// Bir linke tıklandığında normalde sayfayı değiştirir
+// preventDefault() ile bunu durduruyoruz
+
+const link = document.querySelector("a");
+
+link.addEventListener("click", function (event) {
+event.preventDefault(); // Sayfa değişmesini durdur
+  console.log("Link tıklandı ama sayfa açılmadı!");
+});
