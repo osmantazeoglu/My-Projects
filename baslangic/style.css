@@ -14,7 +14,7 @@ body {
   gap: 10px; /* Label ve input arası boşluk */
 }
 
-#submit-btn {
+button {
   display: flex;
   justify-content: center;
   align-items: center;

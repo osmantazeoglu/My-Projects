@@ -105,7 +105,86 @@ console.log(enKucuk); // 8
 const link = document.querySelector("a");
 
 link.addEventListener("click", function (event) {
-event.preventDefault(); // Sayfa değişmesini durdur
+  event.preventDefault(); // Sayfa değişmesini durdur
   console.log("Link tıklandı ama sayfa açılmadı!");
 });
+
+
+
+
+const form = document.getElementById("user-form");
+const nameInput = document.getElementById("name");
+const ageInput = document.getElementById("age");
+const clearBtn = document.getElementById("clearbtn");
+
+clearBtn.addEventListener("click", function () {
+  localStorage.clear();
+
+  // DOM'daki listeyi temizle
+  const storageSection = document.querySelector(".LocalStorage");
+  const allLists = storageSection.querySelectorAll("ul");
+  allLists.forEach((ul) => ul.remove());
+});
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const userName = nameInput.value;
+  const userAge = ageInput.value;
+
+  if (userName.length > 0 && userAge.length > 0) {
+    const userData = {
+      name: userName,
+      age: userAge,
+    };
+    // LocalStorage'dan mevcut kullanıcıları al (yoksa boş array)
+    let users = JSON.parse(localStorage.getItem("users") || "[]");
+
+    // Yeni kullanıcıyı ekle
+    users.push(userData);
+
+    const userList = document.createElement("ul");
+    const nameItem = document.createElement("li");
+    const ageItem = document.createElement("li");
+
+    nameItem.textContent = userName;
+    ageItem.textContent = userAge;
+
+    userList.appendChild(nameItem);
+    userList.appendChild(ageItem);
+
+    const storageSection = document.querySelector(".LocalStorage");
+    if (storageSection) {
+      storageSection.appendChild(userList);
+    }
+
+    localStorage.setItem("users", JSON.stringify(users));
+    console.log(localStorage.getItem("users"));
+    form.reset();
+  } else {
+    alert("Please add name and age");
+  }
+});
+
+window.addEventListener("DOMContentLoaded", function () {
+  const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+  const storageSection = document.querySelector(".LocalStorage");
+  users.forEach((user) => {
+    const userList = document.createElement("ul");
+    const nameItem = document.createElement("li");
+    const ageItem = document.createElement("li");
+
+    nameItem.textContent = user.name;
+    ageItem.textContent = user.age;
+
+    userList.appendChild(nameItem);
+    userList.appendChild(ageItem);
+
+    if (storageSection) storageSection.appendChild(userList);
+  });
+});
+
+
+
 
