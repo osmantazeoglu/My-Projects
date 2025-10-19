@@ -7,82 +7,99 @@
     <title>Baslangic</title>
   </head>
   <body>
-    <div class="ana-sayfa">
-      <!-- Bu div sadece tüm sayfayı sarmak için, stil vermek için -->
+    <div class="container">
+      <div class="ana-sayfa">
+        <!-- Bu div sadece tüm sayfayı sarmak için, stil vermek için -->
 
-      <section class="blog-yazilari">
-        <!-- Bu bölümün konusu: Blog yazıları -->
-        <h2>Son Yazılarım</h2>
+        <section class="blog-yazilari">
+          <!-- Bu bölümün konusu: Blog yazıları -->
+          <h2>Son Yazılarım</h2>
 
-        <article>
-          <!-- Her yazı kendi başına tam bir içerik -->
-          <h3>Kahve Nasıl Demlenir?</h3>
-          <p>Güzel kahve demlemek için...</p>
-        </article>
+          <article>
+            <!-- Her yazı kendi başına tam bir içerik -->
+            <h3>Kahve Nasıl Demlenir?</h3>
+            <p>Güzel kahve demlemek için...</p>
+          </article>
 
-        <article>
-          <h3>Sabah Rutinleri</h3>
-          <p>Sabahları erken kalkmak için...</p>
-        </article>
-      </section>
+          <article>
+            <h3>Sabah Rutinleri</h3>
+            <p>Sabahları erken kalkmak için...</p>
+          </article>
+        </section>
 
-      <section class="hakkimda">
-        <!-- Bu bölümün konusu: Hakkımda bilgisi -->
-        <h2>Ben Kimim?</h2>
-        <p>Merhaba, ben Ali. Yazılım geliştirici olarak...</p>
-      </section>
-    </div>
+        <section class="hakkimda">
+          <!-- Bu bölümün konusu: Hakkımda bilgisi -->
+          <h2>Ben Kimim?</h2>
+          <p>Merhaba, ben Ali. Yazılım geliştirici olarak...</p>
+        </section>
+      </div>
 
-    <div class="mini-todo">
-      <input type="text" id="input" />
-      <button id="btn">add</button>
-      <ul id="list"></ul>
-    </div>
+      <div class="mini-todo">
+        <input type="text" id="input" />
+        <button id="btn">add</button>
+        <ul id="list"></ul>
+      </div>
 
-    <div id="test-div">test box</div>
-    <button id="test-button">change color</button>
-    <div class="like-div">
-      <button id="like-btn">like</button>
+      <div id="test-div">test box</div>
+      <button id="test-button">change color</button>
+      <div class="like-div">
+        <button id="like-btn">like</button>
+        <br />
+        <span id="like-count">0</span>
+      </div>
+      <br /><br />
+
+      <input type="checkbox" id="sozlesme" />
+      <!-- Burada sadece checkbox kutusu isaretlenebilir -->
+      kullanim sartlarini kabul ediyorum
+      <!-- Mobil gibi kucuk ekranlarda zorluk cikarir -->
+
+      <br /><br />
+
+      <input type="checkbox" name="" id="sozlesme1" />
+      <!-- hem kutuya hem yaziya tiklanabilir,cok daha kolay -->
+      <label for="sozlesme1">kullanim sartlarini kabul ediyorum</label>
+
+      <br /><br />
+
+      <input type="text" />
+      <!-- Metin kutusu. Ne icin oldugu belli degil. -->
+      <!-- Ekran okuyucular icin anlasilmasi zor -->
+      <br /><br />
+      <label for="isim">İsminiz:</label>
+      <!-- Isminiz, metin kutusu. Ne icin oldugu belli, kolay anlasilir. -->
+      <!-- Ekran okuyucular bu kisimdan anlarlar -->
+      <input type="text" id="isim" />
+      <div>
+        <p>Cinsiyetiniz:</p>
+
+        <input type="radio" id="erkek" name="cinsiyet" value="erkek" />
+        <label for="erkek">Erkek</label>
+
+        <input type="radio" id="kadin" name="cinsiyet" value="kadin" />
+        <label for="kadin">Kadın</label>
+
+        <input type="radio" id="diger" name="cinsiyet" value="diger" />
+        <label for="diger">Belirtmek istemiyorum</label>
+      </div>
       <br />
-      <span id="like-count">0</span>
+      <br />
+      <a href="https://www.youtube.com/"> youtube</a>
     </div>
-    <br /><br />
 
-    <input type="checkbox" id="sozlesme" />
-    <!-- Burada sadece checkbox kutusu isaretlenebilir -->
-    kullanim sartlarini kabul ediyorum
-    <!-- Mobil gibi kucuk ekranlarda zorluk cikarir -->
-
-    <br /><br />
-
-    <input type="checkbox" name="" id="sozlesme1" />
-    <!-- hem kutuya hem yaziya tiklanabilir,cok daha kolay -->
-    <label for="sozlesme1">kullanim sartlarini kabul ediyorum</label>
-
-    <br /><br />
-
-    <input type="text" />
-    <!-- Metin kutusu. Ne icin oldugu belli degil. -->
-    <!-- Ekran okuyucular icin anlasilmasi zor -->
-    <br /><br />
-    <label for="isim">İsminiz:</label>
-    <!-- Isminiz, metin kutusu. Ne icin oldugu belli, kolay anlasilir. -->
-    <!-- Ekran okuyucular bu kisimdan anlarlar -->
-    <input type="text" id="isim" />
-
-    <p>Cinsiyetiniz:</p>
-
-    <input type="radio" id="erkek" name="cinsiyet" value="erkek" />
-    <label for="erkek">Erkek</label>
-
-    <input type="radio" id="kadin" name="cinsiyet" value="kadin" />
-    <label for="kadin">Kadın</label>
-
-    <input type="radio" id="diger" name="cinsiyet" value="diger" />
-    <label for="diger">Belirtmek istemiyorum</label>
-    <br />
-    <br />
-    <a href="https://www.youtube.com/"> youtube</a>
+    <div class="LocalStorage">
+      <form id="user-form">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" placeholder="name" />
+        </div>
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="number" id="age" placeholder="age" />
+        </div>
+        <button type="submit" id="submit-btn">Submit</button>
+      </form>
+    </div>
 
     <script src="script.js"></script>
   </body>

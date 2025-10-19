@@ -108,3 +108,4 @@ link.addEventListener("click", function (event) {
 event.preventDefault(); // Sayfa değişmesini durdur
   console.log("Link tıklandı ama sayfa açılmadı!");
 });
+

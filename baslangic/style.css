@@ -1,3 +1,23 @@
-.like-div {
-  margin-top: 25px;
+body {
+  display: flex;
+}
+
+#user-form {
+  display: flex;
+  flex-direction: column; /* Her grup alt alta */
+  gap: 10px; /* Gruplar arası boşluk */
+}
+
+.form-group {
+  display: flex; /* Label ve input aynı satırda */
+  align-items: center; /* Dikey ortalama */
+  gap: 10px; /* Label ve input arası boşluk */
+}
+
+#submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
 }
