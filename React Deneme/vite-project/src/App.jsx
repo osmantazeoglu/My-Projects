@@ -20,11 +20,34 @@ function Message({ user, message }) {
   );
 }
 
+function Friend({ friends }) {
+  return (
+    <>
+      <p>
+        {friends} <span style={{ color: "saddlebrown" }}>is</span> my
+        <span style={{ color: "lightblue" }}> friend</span>.
+      </p>
+    </>
+  );
+}
+
 function App() {
+  const messages = [
+    { user: "Ali:", message: "The weather is nice today." },
+    { user: "Ayşe:", message: "Yes, perfect for a walk!" },
+    { user: "Osman:", message: "Let's meet at the park!" },
+  ];
+
   return (
     <>
       <Hello />
-      <Message user="Ali:" message="The weather is very nice today." />
+      {messages.map((msg, index) => (
+        <Message key={index} user={msg.user} message={msg.message} />
+      ))}
+
+      {messages.map((name, index) => (
+        <Friend key={index} friends={name.user.replace(":", "")} />
+      ))}
     </>
   );
 }
