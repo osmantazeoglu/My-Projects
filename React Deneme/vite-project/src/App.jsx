@@ -1,3 +1,4 @@
+import { useState } from "react";
 function Hello() {
   return (
     <>
@@ -31,16 +32,28 @@ function Friend({ friends }) {
   );
 }
 
+function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <>
+      <h3>Count = {count}</h3>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+      <button onClick={() => setCount(count - 1)}>Decrease</button>
+      <button onClick={() => setCount(0)}>Reset</button>
+    </>
+  );
+}
+
 function App() {
   const messages = [
     { user: "Ali:", message: "The weather is nice today." },
     { user: "Ayşe:", message: "Yes, perfect for a walk!" },
     { user: "Osman:", message: "Let's meet at the park!" },
   ];
-
   return (
     <>
       <Hello />
+
       {messages.map((msg, index) => (
         <Message key={index} user={msg.user} message={msg.message} />
       ))}
@@ -48,6 +61,8 @@ function App() {
       {messages.map((name, index) => (
         <Friend key={index} friends={name.user.replace(":", "")} />
       ))}
+
+      <Counter />
     </>
   );
 }
