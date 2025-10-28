@@ -44,6 +44,28 @@ function Counter() {
   );
 }
 
+function InputExample() {
+  const [text, setText] = useState("");
+
+  function handleChange(event) {
+    setText(event.target.value);
+  }
+
+  return (
+    <div>
+      <h3>Write Something Below</h3>
+      <input
+        type="text"
+        value={text}
+        onChange={handleChange} // {(e) => setText(e.target.value)} => Bu sekilde de kullanilabilir.
+        placeholder="Write here"
+      />
+
+      <p>You typed : {text}</p>
+    </div>
+  );
+}
+
 function App() {
   const messages = [
     { user: "Ali:", message: "The weather is nice today." },
@@ -63,6 +85,8 @@ function App() {
       ))}
 
       <Counter />
+
+      <InputExample />
     </>
   );
 }
