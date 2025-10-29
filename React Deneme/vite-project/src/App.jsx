@@ -1,14 +1,4 @@
-import { useState } from "react";
-function Hello() {
-  return (
-    <>
-      <p>
-        <span style={{ color: "lightgreen" }}>Hello</span> Osman!
-      </p>
-      <p>Welcome to learning React</p>
-    </>
-  );
-}
+import { useState, useEffect } from "react";
 
 function Message({ user, message }) {
   return (
@@ -66,6 +56,65 @@ function InputExample() {
   );
 }
 
+function Form() {
+  const [comment, setComment] = useState([]);
+  const [user, setUser] = useState("");
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    const savedComment = JSON.parse(localStorage.getItem("comment"));
+    if (savedComment && savedComment.length > 0) {
+      setComment(savedComment);
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log("LocalStorage’a kaydedildi:", comment);
+    localStorage.setItem("comment", JSON.stringify(comment));
+  }, [comment]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!user || !message) return;
+
+    const newComment = { user, message };
+    setComment([...comment, newComment]);
+    setUser("");
+    setMessage("");
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="your name"
+          value={user}
+          onChange={(e) => setUser(e.target.value)}
+        />
+        <br />
+        <input
+          type="text"
+          placeholder="your message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+
+      <ul>
+        {comment.map((msg, index) => (
+          <li key={index}>
+            <strong>{msg.user}:</strong>
+            {msg.message}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function App() {
   const messages = [
     { user: "Ali:", message: "The weather is nice today." },
@@ -74,10 +123,8 @@ function App() {
   ];
   return (
     <>
-      <Hello />
-
-      {messages.map((msg, index) => (
-        <Message key={index} user={msg.user} message={msg.message} />
+      {messages.map((chat, index) => (
+        <Message key={index} user={chat.user} message={chat.message} />
       ))}
 
       {messages.map((name, index) => (
@@ -87,6 +134,8 @@ function App() {
       <Counter />
 
       <InputExample />
+
+      <Form />
     </>
   );
 }
